@@ -1,0 +1,17 @@
+logs
+figs
+results
+.*
+*~
+*.bak
+*.pyc
+*.eps
+*.jpg
+*.png
+*.pdf
+*.mov
+*.avi
+*.gdf
+*.h5f
+*.hdf
+*.h5
