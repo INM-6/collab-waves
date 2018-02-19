@@ -163,7 +163,7 @@ if __name__ == '__main__':
                             np.std(results['events'][k][l][j][m]),
                             np.min(results['events'][k][l][j][m]),
                             np.max(results['events'][k][l][j][m])]
-                        print results['event_stat'][k][l][j][m]
+                        print(results['event_stat'][k][l][j][m])
                     else:
                         results['event_stat'][k][l][j][m] = [
                             0, 0, 0, 0]
