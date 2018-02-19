@@ -190,6 +190,8 @@ def get_data_dir(sessionname):
         Directory where to find the metadata (no trailing /).
     """
 
+    return ("datasets/","datasets/")
+
     # Determine subdirectory
     subdir = 'Data' + monkey_names[sessionname[0]]
 

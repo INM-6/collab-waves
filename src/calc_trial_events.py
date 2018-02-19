@@ -114,7 +114,7 @@ def calc_events(job_id, selected_subsession, selected_filter):
 if __name__ == '__main__':
     # Set up project, do not delete existing data
     pc = projctrl.ProjectControl(
-        project_name='reachgrasp-waves', script_name='calc_events',
+        project_name='reachgrasp-spikewave', script_name='calc_events',
         clear_data=True)
 
     param = {}
@@ -156,7 +156,7 @@ if __name__ == '__main__':
         for l in results['event_stat'][k].keys():
             for j in ['all', 'PG', 'SG']:
                 for m in wave_plots.event_names:
-                    print k, l, j, m, results['events'][k][l][j][m]
+                    print(k, l, j, m, results['events'][k][l][j][m])
                     if results['events'][k][l][j][m]:
                         results['event_stat'][k][l][j][m] = [
                             np.mean(results['events'][k][l][j][m]),
