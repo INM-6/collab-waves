@@ -21,7 +21,7 @@ import numpy as np
 
 import quantities as pq
 
-from rg.rgio import ReachGraspIO
+from rgio import ReachGraspIO
 
 import projctrl as projctrl
 import h5py_wrapper.wrapper as h5pyw

@@ -28,7 +28,7 @@ import os
 import numpy as np
 
 import neo.io.hdf5io as nh5
-from rg.rgio import ReachGraspIO
+from rgio import ReachGraspIO
 
 import pick as pick
 import projctrl as projctrl
