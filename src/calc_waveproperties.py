@@ -30,14 +30,14 @@ import numpy as np
 import neo.io.hdf5io as nh5
 from rg.rgio import ReachGraspIO
 
-import jelephant.core.pick
+import common.pick as pick
+import common.projctrl as projctrl
 
-import projctrl
-import h5py_wrapper.wrapper
+import common.h5py_wrapper.wrapper as h5pyw
 
 import common.wave_main as wave_main
 
-__updated__ = "2017-01-29"
+__updated__ = "2018-02-19"
 
 
 def calc_waveproperties(job_id, selected_subsession, selected_filter):
@@ -127,17 +127,17 @@ def calc_waveproperties(job_id, selected_subsession, selected_filter):
     ho = nh5.NeoHdf5IO(filename=framesfile)
 
     print("Filtering blocks - %s" % selected_subsession_name)
-    jelephant.core.pick.map_as(
+    pick.map_as(
         neo_block, wave_main.applyfilter,
         annotations=None, lowcut=param['lowcut'],
         highcut=param['highcut'], order=param['order'])
 
     print("z-scoring block - %s" % selected_subsession_name)
-    jelephant.core.pick.map_as(
+    pick.map_as(
         neo_block, wave_main.applyzscore, annotations=None)
 
     print("Calculating the analytic  - %s" % selected_subsession_name)
-    jelephant.core.pick.map_as(
+    pick.map_as(
         neo_block, wave_main.applyhilbert, annotations=None)
 
     print("Determining connected, non-broken, non-rejected electrodes - %s" %
@@ -210,14 +210,14 @@ def calc_waveproperties(job_id, selected_subsession, selected_filter):
 
     # Write file containing the table of contents of the Neo hdf5
     print("Saving info file - %s" % selected_subsession_name)
-    h5py_wrapper.wrapper.add_to_h5(
+    h5pyw.add_to_h5(
         pc.result_path + selected_subsession_name +
         '_filter_' + selected_filter +
         '_info.h5', results, write_mode='w', overwrite_dataset=True)
 
     # Write parameters to disk
     print("Saving parameters - %s" % selected_subsession_name)
-    h5py_wrapper.wrapper.add_to_h5(
+    h5pyw.add_to_h5(
         pc.result_path + selected_subsession_name +
         '_filter_' + selected_filter +
         '_param.h5', param, write_mode='w', overwrite_dataset=True)
@@ -230,22 +230,17 @@ def calc_waveproperties(job_id, selected_subsession, selected_filter):
 if __name__ == '__main__':
     # Set up project, do not delete existing data
     pc = projctrl.ProjectControl(
-        project_name='reachgrasp-waves', script_name='calc_waveproperties',
+        project_name='reachgrasp-spikewave', 
+        script_name='calc_waveproperties',
+        workspace_base='.', data_base='.',
         clear_data=False)
 
     # Fetch job ID
     job_id = wave_main.get_jobid()
 
     # Create job(s) and prefetch files if required
-#     jobparameters = wave_main.create_file_filter_task(
-#         [wave_main.selected_datasets[_] for _ in [
-#             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-#             38, 42,
-#             45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]],
-#         wave_main.selected_filter_names[0:2],
-#         fetch=False)
     jobparameters = wave_main.create_file_filter_task(
-        wave_main.selected_datasets, wave_main.selected_filter_names[0:2],
+        wave_main.selected_datasets, wave_main.selected_filter_names[0:1],
         fetch=False)
 
     # Launch jobs (suggest: spare_core=6)
