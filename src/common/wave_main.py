@@ -435,9 +435,9 @@ def run_task(worker_function, job_id, parameter_list, spare_core=-1):
             pool.close()
             for r in results:
                 r.get()
-            print "Multiprocessing done."
+            print("Multiprocessing done.")
             pool.join()
-            print "Multiprocessing joined."
+            print("Multiprocessing joined.")
             pool.terminate()
     else:
         # Launch only a single job in batch queue mode
