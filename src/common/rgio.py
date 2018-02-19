@@ -227,6 +227,10 @@ class ReachGraspIO(BlackrockIO):
     __grip_first_str = [''.join(i) for i in list(itertools.product(
         list(__grip.keys()), list(__force.keys())))]
     a=list(__grip.keys())
+    print(list(
+        [(x,y) for x in [a[0]] for y in [a[0]]]))
+    print(list(
+        [(x,y) for x in [a[1]] for y in [a[1]]]))
     __grip_only_str = [[''.join(i) for i in 
             list(
                 [(x,y) for x in [a[j]] for y in [a[j]]]
