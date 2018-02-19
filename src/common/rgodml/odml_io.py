@@ -65,10 +65,10 @@ def print_summary(odmldoc):
                     dshort.append('...')
                 data = ' '.join([str(s) for s in dshort])
 
-            print ' '.join([sind+'\t', p.name+':'])
-            print ' '.join([sind+'\t\t', 'data:', data])
-            print ' '.join([sind+'\t\t', 'dtype:', str(dtype)])
-            print ' '.join([sind+'\t\t', 'unit:', str(unit)])
+            print(' '.join([sind+'\t', p.name+':']))
+            print(' '.join([sind+'\t\t', 'data:', data]))
+            print(' '.join([sind+'\t\t', 'dtype:', str(dtype)]))
+            print(' '.join([sind+'\t\t', 'unit:', str(unit)]))
 
 
 def default_value(dtype, unit=None):
