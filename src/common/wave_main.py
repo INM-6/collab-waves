@@ -192,10 +192,11 @@ def get_data_dir(sessionname):
         Directory where to find the metadata (no trailing /).
     """
 
-    return ("datasets/","reachgrasp-spikewave/metadata/Meta" + subdir)
-
     # Determine subdirectory
     subdir = 'Data' + monkey_names[sessionname[0]]
+
+    return ("datasets/","reachgrasp-spikewave/metadata/Meta" + subdir)
+
 
     # Laptop or server
     if platform.node() != 'hambach':
