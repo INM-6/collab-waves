@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import quantities as pq
 
 import scipy.cluster.hierarchy as hcluster
-import common.wave_main as wave_main
+import wave_main as wave_main
 
 # Colors of pattern types 
 cmap =  [

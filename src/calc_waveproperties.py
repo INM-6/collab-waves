@@ -30,12 +30,12 @@ import numpy as np
 import neo.io.hdf5io as nh5
 from rg.rgio import ReachGraspIO
 
-import common.pick as pick
-import common.projctrl as projctrl
+import pick as pick
+import projctrl as projctrl
 
-import common.h5py_wrapper.wrapper as h5pyw
+import h5py_wrapper.wrapper as h5pyw
 
-import common.wave_main as wave_main
+import wave_main as wave_main
 
 __updated__ = "2018-02-19"
 
