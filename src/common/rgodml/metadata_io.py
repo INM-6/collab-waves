@@ -163,7 +163,7 @@ def save_as_xls(docdicts, sheet_name, save_to):
             if col in [0, 1]:
                 sheet.write(row+1, col, d[h], style_col0)
             else:
-                print d[h]
+                print(d[h])
                 if h == 'Value' and d[h] in odml_default_value():
                     sheet.write(row+1, col, d[h], xlwt.easyxf(style_4))
                 else:
