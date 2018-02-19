@@ -39,15 +39,15 @@ def print_summary(odmldoc):
           printed.
     """
     # FIXME not working yet
-    print 'Author:', odmldoc.author
-    print 'LastChanges:', odmldoc.date
+    print('Author:', odmldoc.author)
+    print('LastChanges:', odmldoc.date)
 
     spaths = np.sort([s.get_path() for s in odmldoc.itersections()])
     for sp in spaths:
         sobj = odmldoc.find_by_path(sp)
         sind = '\t' * sp.count('/')
 
-        print ' '.join([sind, sp.split('/')[-1],'('+sobj.type+'):'])
+        print(' '.join([sind, sp.split('/')[-1],'('+sobj.type+'):']))
 
         for p in sobj.properties:
             data, dtype, unit = self.mdata.get_values(p)
