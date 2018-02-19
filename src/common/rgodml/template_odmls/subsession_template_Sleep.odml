@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl" href="odmlTerms.xsl"?>
+<?xml-stylesheet  type="text/xsl" href="odml.xsl"?>
+<odML version="1">
+  <section>
+    <definition>Information on the subsession</definition>
+    <property>
+      <definition>Session name</definition>
+      <value>-<type>string</type></value>
+      <name>Session</name>
+    </property>
+    <property>
+      <definition>Subsession name</definition>
+      <value>-<type>string</type></value>
+      <name>Subsession</name>
+    </property>
+    <property>
+      <definition>Date of session</definition>
+      <value>1111-11-11<type>date</type></value>
+      <name>Date</name>
+    </property>
+    <property>
+      <definition>Weekday of session</definition>
+      <value>-<type>string</type></value>
+      <name>Weekday</name>
+    </property>
+    <property>
+      <definition>Time of subsession</definition>
+      <value>11:11:11<type>time</type></value>
+      <name>Time</name>
+    </property>
+    <property>
+      <definition>Duration of subsession</definition>
+      <value>-1<unit>sec</unit><type>int</type></value>
+      <name>Duration</name>
+    </property>
+    <property>
+      <definition>States if a spike sorting was performed for this subsession </definition>
+      <value>False<type>boolean</type></value>
+      <name>IsSpikeSorted</name>
+    </property>
+    <property>
+      <definition>Performed task type</definition>
+      <value>Sleep<type>string</type></value>
+      <name>TaskType</name>
+    </property>
+    <property>
+      <definition>States if subsession is noisy</definition>
+      <value>False<type>boolean</type></value>
+      <name>Noisy</name>
+    </property>
+    <property>
+      <definition>Comment about the subsession</definition>
+      <value>-<type>string</type></value>
+      <name>Comment</name>
+    </property>
+    <name>Subsession</name>
+    <section>
+      <definition>Information on task settings</definition>
+      <property>
+        <definition>Start time(s) of sleep interval(s)</definition>
+        <value>-1<unit>samples</unit><type>int</type></value>
+        <name>SleepStart</name>
+      </property>
+      <property>
+        <definition>End time(s) of sleep interval(s)</definition>
+        <value>-1<unit>samples</unit><type>int</type></value>
+        <name>SleepEnd</name>
+      </property>
+      <name>TaskSettings</name>
+      <type>subsession/task</type>
+    </section>
+    <type>subsession</type>
+  </section>
+  <version>0.1</version>
+</odML>

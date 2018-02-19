@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl" href="odmlTerms.xsl"?>
+<?xml-stylesheet  type="text/xsl" href="odml.xsl"?>
+<odML version="1">
+  <section>
+    <definition>Information on the subsession</definition>
+    <property>
+      <definition>Session name</definition>
+      <value>-<type>string</type></value>
+      <name>Session</name>
+    </property>
+    <property>
+      <definition>Subsession name</definition>
+      <value>-<type>string</type></value>
+      <name>Subsession</name>
+    </property>
+    <property>
+      <definition>Date of session</definition>
+      <value>1111-11-11<type>date</type></value>
+      <name>Date</name>
+    </property>
+    <property>
+      <definition>Weekday of session</definition>
+      <value>-<type>string</type></value>
+      <name>Weekday</name>
+    </property>
+    <property>
+      <definition>Time of subsession</definition>
+      <value>11:11:11<type>time</type></value>
+      <name>Time</name>
+    </property>
+    <property>
+      <definition>Duration of subsession</definition>
+      <value>-1<unit>sec</unit><type>int</type></value>
+      <name>Duration</name>
+    </property>
+    <property>
+      <definition>States if a spike sorting was performed for this subsession </definition>
+      <value>False<type>boolean</type></value>
+      <name>IsSpikeSorted</name>
+    </property>
+    <property>
+      <definition>Performed task type</definition>
+      <value>Mapping<type>string</type></value>
+      <name>TaskType</name>
+    </property>
+    <property>
+      <definition>States if subsession is noisy</definition>
+      <value>False<type>boolean</type></value>
+      <name>Noisy</name>
+    </property>
+    <property>
+      <definition>Comment about the subsession</definition>
+      <value>-<type>string</type></value>
+      <name>Comment</name>
+    </property>
+    <name>Subsession</name>
+    <section>
+      <definition>Information on task settings</definition>
+      <property>
+        <definition>Time interval where a passively precision grip was mimicked</definition>
+        <value>-1<unit>samples</unit><type>int</type></value>
+        <name>PassivePG</name>
+      </property>
+      <property>
+        <definition>Time interval where Ulnar was deviated</definition>
+        <value>-1<unit>samples</unit><type>int</type></value>
+        <name>UlnarDeviation</name>
+      </property>
+      <property>
+        <definition>Time interval where digits 2 and 3 were extended</definition>
+        <value>-1<unit>samples</unit><type>int</type></value>
+        <name>Digit2to3Extension</name>
+      </property>
+      <property>
+        <definition>Time interval where palm was touched</definition>
+        <value>-1<unit>samples</unit><type>int</type></value>
+        <name>TouchPalm</name>
+      </property>
+      <property>
+        <definition>Time interval where cheek was touched</definition>
+        <value>-1<unit>samples</unit><type>int</type></value>
+        <name>TouchCheek</name>
+      </property>
+      <name>TaskSettings</name>
+      <section>
+        <definition>Information on shoulder mapping</definition>
+        <property>
+          <definition>Time interval in which body part was moved forward</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>MoveForward</name>
+        </property>
+        <property>
+          <definition>Time interval in which body part was lowered down</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Lowering</name>
+        </property>
+        <name>Shoulder</name>
+        <type>subsession/task/RF</type>
+      </section>
+      <section>
+        <definition>Information on elbow mapping</definition>
+        <property>
+          <definition>Time interval in which body part was flexed</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Flexion</name>
+        </property>
+        <property>
+          <definition>Time interval in which body part was extended</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Extension</name>
+        </property>
+        <name>Elbow</name>
+        <type>subsession/task/RF</type>
+      </section>
+      <section>
+        <definition>Information on wrist mapping</definition>
+        <property>
+          <definition>Time interval in which body part was flexed</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Flexion</name>
+        </property>
+        <property>
+          <definition>Time interval in which body part was pronated</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Pronation</name>
+        </property>
+        <name>Wrist</name>
+        <type>subsession/task/RF</type>
+      </section>
+      <section>
+        <definition>Information on wrist mapping</definition>
+        <property>
+          <definition>Time interval in which body part was abducted</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Abduction</name>
+        </property>
+        <property>
+          <definition>Time interval in which body part was adducted</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Adduction</name>
+        </property>
+        <property>
+          <definition>Time interval in which body part was extended</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Extension</name>
+        </property>
+        <property>
+          <definition>Time interval in which end of body part was touched</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>TouchEnd</name>
+        </property>
+        <property>
+          <definition>Time interval in which interior body part was touched</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>TouchInterior</name>
+        </property>
+        <name>Thumb</name>
+        <type>subsession/task/RF</type>
+      </section>
+      <section>
+        <definition>Information on wrist mapping</definition>
+        <property>
+          <definition>Time interval in which body part was abducted</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Abduction</name>
+        </property>
+        <property>
+          <definition>Time interval in which body part was flexed</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Flexion</name>
+        </property>
+        <property>
+          <definition>Time interval in which body part was extended</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Extension</name>
+        </property>
+        <property>
+          <definition>Time interval in which interior body part was touched</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>TouchInteriorFace</name>
+        </property>
+        <name>Index</name>
+        <type>subsession/task/RF</type>
+      </section>
+      <section>
+        <definition>Information on wrist mapping</definition>
+        <property>
+          <definition>Time interval in which body part was flexed</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Flexion</name>
+        </property>
+        <property>
+          <definition>Time interval in which interior body part was touched</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>TouchInteriorFace</name>
+        </property>
+        <name>Digit2to5</name>
+        <type>subsession/task/RF</type>
+      </section>
+      <section>
+        <definition>Information on wrist mapping</definition>
+        <property>
+          <definition>Time interval in which body part was flexed</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>Flexion</name>
+        </property>
+        <property>
+          <definition>Time interval in which lateral body part was touched</definition>
+          <value>-1<unit>samples</unit><type>int</type></value>
+          <name>TouchLateralFace</name>
+        </property>
+        <name>Digit5</name>
+        <type>subsession/task/RF</type>
+      </section>
+      <type>subsession/task</type>
+    </section>
+    <type>subsession</type>
+  </section>
+  <version>0.1</version>
+</odML>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl" href="odmlTerms.xsl"?>
+<?xml-stylesheet  type="text/xsl" href="odml.xsl"?>
+<odML version="1">
+  <section>
+    <definition>Information on the Cerebus^TM data acquisition system</definition>
+    <property>
+      <definition>Owner of the device</definition>
+      <value>Riken, Japan<type>string</type></value>
+      <name>Owner</name>
+    </property>
+    <property>
+      <definition>Manufacturer of the device</definition>
+      <value>Blackrock Microsystems<type>string</type></value>
+      <name>Manufacturer</name>
+    </property>
+    <property>
+      <definition>User manual URL of the device</definition>
+      <value>file://-<type>url</type></value>
+      <name>UserManual</name>
+    </property>
+    <name>Cerebus</name>
+    <section>
+      <definition>Information of the Cerebus^TM neural signal processor (NSP)</definition>
+      <property>
+        <definition>Type of the device</definition>
+        <value>Real-time<type>string</type></value>
+        <name>Type</name>
+      </property>
+      <property>
+        <definition>Model of the device</definition>
+        <value>-<type>string</type></value>
+        <name>Model</name>
+      </property>
+      <name>NeuralSignalProcessor</name>
+      <section>
+        <definition>Information on spike detection</definition>
+        <name>SpikeDetection</name>
+        <section>
+          <definition>Information on the recorded spike waveforms of the spike detection</definition>
+          <property>
+            <definition>Waveform window width</definition>
+            <value>1.6<unit>ms</unit><type>float</type></value>
+            <name>Width</name>
+          </property>
+          <property>
+            <definition>Sampling rate of data</definition>
+            <value>30000<unit>samples/sec</unit><type>int</type></value>
+            <name>SamplingRate</name>
+          </property>
+          <property>
+            <definition>Number of samples before waveform passes threshold</definition>
+            <value>10<unit>samples</unit><type>int</type></value>
+            <name>PreThresholdSamples</name>
+          </property>
+          <name>Waveforms</name>
+          <type>setup/daq</type>
+        </section>
+        <type>setup/daq</type>
+      </section>
+      <type>setup/daq/hardware</type>
+    </section>
+    <section>
+      <definition>Information on the Cerebus^TM control computer</definition>
+      <property>
+        <definition>CPU model</definition>
+        <value>-<type>string</type></value>
+        <name>CPU</name>
+      </property>
+      <property>
+        <definition>Amount of RAM</definition>
+        <value>-1.0<unit>GB</unit><type>float</type></value>
+        <name>RAM</name>
+      </property>
+      <property>
+        <definition>Mainboard type</definition>
+        <value>-<type>string</type></value>
+        <name>Mainboard</name>
+      </property>
+      <property>
+        <definition>Disk capacity of data storage</definition>
+        <value>-1.0<unit>GB</unit><type>float</type></value>
+        <name>HarddiskCapacity</name>
+      </property>
+      <property>
+        <definition>Type of operating system</definition>
+        <value>-<type>string</type></value>
+        <name>OSType</name>
+      </property>
+      <property>
+        <definition>Version of operating system</definition>
+        <value>-<type>string</type></value>
+        <name>OSVersion</name>
+      </property>
+      <name>ControlComputer</name>
+      <section>
+        <definition>Information on the control software of the Cerebus^TM system</definition>
+        <property>
+          <definition>Name of software</definition>
+          <value>CentralSuite<type>string</type></value>
+          <name>Name</name>
+        </property>
+        <property>
+          <definition>Manufacturer of software</definition>
+          <value>Blackrock Microsystems<type>string</type></value>
+          <name>Manufacturer</name>
+        </property>
+        <property>
+          <definition>Software version</definition>
+          <value>-<type>string</type></value>
+          <name>Version</name>
+        </property>
+        <name>ControlSoftware</name>
+        <type>setup/daq</type>
+      </section>
+      <type>setup/daq/software</type>
+    </section>
+    <type>setup/daq</type>
+  </section>
+  <section>
+    <definition>Information on the Blackrock Utah Electrode Array</definition>
+    <property>
+      <definition>Owner of the device</definition>
+      <value>Riken, Japan<type>string</type></value>
+      <name>Owner</name>
+    </property>
+    <property>
+      <definition>Serial number of the device</definition>
+      <value>-<type>string</type></value>
+      <name>SerialNo</name>
+    </property>
+    <property>
+      <definition>Manufacturer of the device</definition>
+      <value>Blackrock Microsystems<type>string</type></value>
+      <name>Manufacturer</name>
+    </property>
+    <property>
+      <definition>Material of wires connecting array and connector</definition>
+      <value>Pt/Au<type>string</type></value>
+      <name>WiresMaterial</name>
+    </property>
+    <property>
+      <definition>Diameter of each wire</definition>
+      <value>25.0<unit>µm</unit><type>float</type></value>
+      <name>WiresDiameter</name>
+    </property>
+    <property>
+      <definition>Length of each wire</definition>
+      <value>-1.0<unit>mm</unit><type>float</type></value>
+      <name>WiresLength</name>
+    </property>
+    <name>UtahArray</name>
+    <section>
+      <definition>Information on the used connector</definition>
+      <property>
+        <definition>Style of the connector</definition>
+        <value>CerePort<type>string</type></value>
+        <name>Style</name>
+      </property>
+      <property>
+        <definition>Height of the connector</definition>
+        <value>16.5<unit>mm</unit><type>float</type></value>
+        <name>Height</name>
+      </property>
+      <property>
+        <definition>Diameter of the base of the connector</definition>
+        <value>19.0<unit>mm</unit><type>float</type></value>
+        <name>DiameterBase</name>
+      </property>
+      <property>
+        <definition>Diameter of the body of the connector</definition>
+        <value>11.0<unit>mm</unit><type>float</type></value>
+        <name>DiameterBody</name>
+      </property>
+      <property>
+        <definition>Type of implantation</definition>
+        <value>chronic<type>string</type></value>
+        <name>ImplantType</name>
+      </property>
+      <property>
+        <definition>Type of mounting to the skull</definition>
+        <value>bone screws<type>string</type></value>
+        <name>SkullMount</name>
+      </property>
+      <name>Connector</name>
+      <type>setup/daq/hardware</type>
+    </section>
+    <section>
+      <definition>Information on the array used</definition>
+      <property>
+        <definition>Number of array grids</definition>
+        <value>1<type>int</type></value>
+        <name>GridCount</name>
+      </property>
+      <property>
+        <definition>Number of reference wires</definition>
+        <value>2<type>int</type></value>
+        <name>ReferenceCount</name>
+      </property>
+      <property>
+        <definition>Number of ground wires</definition>
+        <value>1<type>int</type></value>
+        <name>GroundCount</name>
+      </property>
+      <property>
+        <definition>Total number of electrodes</definition>
+        <value>100<type>int</type></value>
+        <name>ElectrodeCount</name>
+      </property>
+      <property>
+        <definition>Number of connected/active electrodes</definition>
+        <value>96<type>int</type></value>
+        <name>ActiveElectrodeCount</name>
+      </property>
+      <name>Array</name>
+      <section>
+        <definition>Information on array grid</definition>
+        <property>
+          <definition>Grid ID</definition>
+          <value>1<type>int</type></value>
+          <name>ID</name>
+        </property>
+        <property>
+          <definition>Geometry of the electrode lengths</definition>
+          <value>flat<type>string</type></value>
+          <name>ElectrodeGeometry</name>
+        </property>
+        <property>
+          <definition>Electrode site metal option</definition>
+          <value>iridium oxide<type>string</type></value>
+          <name>ElectrodeMetal</name>
+        </property>
+        <property>
+          <definition>Inter-electrode-distance</definition>
+          <value>400.0<unit>µm</unit><type>float</type></value>
+          <name>ElectrodePitch</name>
+        </property>
+        <property>
+          <definition>Insulation material</definition>
+          <value>Parylene-C<type>string</type></value>
+          <name>Insulation</name>
+        </property>
+        <property>
+          <definition>Number of electrode rows.</definition>
+          <value>10<type>int</type></value>
+          <name>GridRows</name>
+        </property>
+        <property>
+          <definition>Number of electrode columns</definition>
+          <value>10<type>int</type></value>
+          <name>GridColumns</name>
+        </property>
+        <property>
+          <definition>Width of array grid</definition>
+          <value>4.0<unit>mm</unit><type>float</type></value>
+          <name>GridWidth</name>
+        </property>
+        <property>
+          <definition>Length of array grid</definition>
+          <value>4.0<unit>mm</unit><type>float</type></value>
+          <name>GridLength</name>
+        </property>
+        <property>
+          <definition>Total number of electrodes</definition>
+          <value>100<type>int</type></value>
+          <name>ElectrodeCount</name>
+        </property>
+        <property>
+          <definition>Number of connected/active electrodes</definition>
+          <value>0<type>int</type></value>
+          <name>ActiveElectrodeCount</name>
+        </property>
+        <name>Grid_01</name>
+        <type>setup/daq/hardware</type>
+      </section>
+      <type>setup/daq/hardware</type>
+    </section>
+    <type>setup/daq/hardware</type>
+  </section>
+  <version>0.1</version>
+</odML>

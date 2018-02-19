@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl" href="odmlTerms.xsl"?>
+<?xml-stylesheet  type="text/xsl" href="odml.xsl"?>
+<odML version="1">
+  <section>
+    <definition>Information on the subsession</definition>
+    <property>
+      <definition>Session name</definition>
+      <value>-<type>string</type></value>
+      <name>Session</name>
+    </property>
+    <property>
+      <definition>Subsession name</definition>
+      <value>-<type>string</type></value>
+      <name>Subsession</name>
+    </property>
+    <property>
+      <definition>Date of session</definition>
+      <value>1111-11-11<type>date</type></value>
+      <name>Date</name>
+    </property>
+    <property>
+      <definition>Weekday of session</definition>
+      <value>-<type>string</type></value>
+      <name>Weekday</name>
+    </property>
+    <property>
+      <definition>Time of subsession</definition>
+      <value>11:11:11<type>time</type></value>
+      <name>Time</name>
+    </property>
+    <property>
+      <definition>Duration of subsession</definition>
+      <value>-1<unit>sec</unit><type>int</type></value>
+      <name>Duration</name>
+    </property>
+    <property>
+      <definition>States if a spike sorting was performed for this subsession </definition>
+      <value>False<type>boolean</type></value>
+      <name>IsSpikeSorted</name>
+    </property>
+    <property>
+      <definition>Performed task type</definition>
+      <value>OneCue<type>string</type></value>
+      <name>TaskType</name>
+    </property>
+    <property>
+      <definition>States if subsession is noisy</definition>
+      <value>False<type>boolean</type></value>
+      <name>Noisy</name>
+    </property>
+    <property>
+      <definition>Comment about the subsession</definition>
+      <value>-<type>string</type></value>
+      <name>Comment</name>
+    </property>
+    <name>Subsession</name>
+    <section>
+      <definition>Information on task settings</definition>
+      <property>
+        <definition>Total number of trials</definition>
+        <value>-1<type>int</type></value>
+        <name>TotalTrialCount</name>
+      </property>
+      <property>
+        <definition>Number of correctly performed trials</definition>
+        <value>-1<type>int</type></value>
+        <name>CorrectTrialCount</name>
+      </property>
+      <property>
+        <definition>Number of error trials</definition>
+        <value>-1<type>int</type></value>
+        <name>GripErrorTrialCount</name>
+      </property>
+      <property>
+        <definition>States if subsession was performed under standard settings</definition>
+        <value>False<type>boolean</type></value>
+        <name>StandardSettings</name>
+      </property>
+      <name>TaskSettings</name>
+      <section>
+        <definition>Information on trial type parameters</definition>
+        <property>
+          <definition>Trial type combination of subsession was condition</definition>
+          <value>-1<type>int</type></value>
+          <name>Condition</name>
+        </property>
+        <property>
+          <definition>Trial order of force conditions (random or block)</definition>
+          <value>-<type>string</type></value>
+          <name>OrderForce</name>
+        </property>
+        <property>
+          <definition>Trial order of grip conditions (random or block)</definition>
+          <value>-<type>string</type></value>
+          <name>OrderGrip</name>
+        </property>
+        <property>
+          <definition>Order of trial type combination was of block size</definition>
+          <value>-1<type>int</type></value>
+          <name>BlockSize</name>
+        </property>
+        <name>TrialTypeSettings</name>
+        <type>subsession/task/trial</type>
+      </section>
+      <section>
+        <definition>Information on trial parameters</definition>
+        <property>
+          <definition>Trial ID</definition>
+          <value>-1<type>int</type></value>
+          <name>ID</name>
+        </property>
+        <property>
+          <definition>States if this was an error or a correct trial</definition>
+          <value>-1<type>int</type></value>
+          <name>PerformanceCode</name>
+        </property>
+        <property>
+          <definition>Trial type of trial</definition>
+          <value>-1<type>int</type></value>
+          <name>TrialType</name>
+        </property>
+        <property>
+          <definition>Force type measured in trial</definition>
+          <value>-<type>string</type></value>
+          <name>ForceType</name>
+        </property>
+        <name>Trial_XXX</name>
+        <section>
+          <definition>Information on digital trial events</definition>
+          <property>
+            <definition>Time when trial start is activated</definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>TS</name>
+          </property>
+          <property>
+            <definition>Time when fixation point is activated</definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>FP-ON</name>
+          </property>
+          <property>
+            <definition>Time when (first) CUE is activated </definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>CUE-ON</name>
+          </property>
+          <property>
+            <definition>Time when (first) CUE is deactivated </definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>CUE-OFF</name>
+          </property>
+          <property>
+            <definition>Time when (second cue) GO is activated </definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>GO-ON</name>
+          </property>
+          <property>
+            <definition>Time when switch is released</definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>SR</name>
+          </property>
+          <property>
+            <definition>Time when (second cue) GO is deactivated </definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>GO-OFF</name>
+          </property>
+          <property>
+            <definition>Time when reward is given</definition>
+            <value>-1<unit>1./30000*s</unit><type>int</type></value>
+            <name>RW</name>
+          </property>
+          <name>DigitalEvents</name>
+          <type>subsession/task/trial/events</type>
+        </section>
+        <section>
+          <definition>Information on analogue trial events</definition>
+          <property>
+            <definition>Channel ID index of force sensor used in grip force detection</definition>
+            <value>-1<type>int</type></value>
+            <name>UsedForceSensor</name>
+          </property>
+          <property>
+            <definition>States if analogue event detection of this trial was manually controlled</definition>
+            <value>False<type>boolean</type></value>
+            <name>ManuallyControlled</name>
+          </property>
+          <name>AnalogEvents</name>
+          <section>
+            <definition>Information on analogue events detected with grip force signals</definition>
+            <property>
+              <definition>Time when target object is touched</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>OT</name>
+            </property>
+            <property>
+              <definition>Time when holding position of target object is reached and holding period starts</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>HS</name>
+            </property>
+            <property>
+              <definition>Time when target object is released</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>OR</name>
+            </property>
+            <property>
+              <definition>Time when object moved back to its baseline</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>BTB</name>
+            </property>
+            <name>GripForceSignals</name>
+            <type>subsession/task/trial/events</type>
+          </section>
+          <section>
+            <definition>Information on analogue events detected with object displacement signal</definition>
+            <property>
+              <definition>Time when target object is touched</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>OT</name>
+            </property>
+            <property>
+              <definition>Time when holding position of target object is reached and holding period starts</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>HS</name>
+            </property>
+            <property>
+              <definition>Time when target object is released</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>OR</name>
+            </property>
+            <property>
+              <definition>Time when object moved back to its baseline</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>BTB</name>
+            </property>
+            <name>DisplacementSignal</name>
+            <type>subsession/task/trial/events</type>
+          </section>
+          <type>subsession/task/trial/events</type>
+        </section>
+        <section>
+          <definition>Information on trial periods</definition>
+          <property>
+            <definition>Reaction time (period between GO and SR)</definition>
+            <value>-1<unit>ms</unit><type>int</type></value>
+            <name>RT</name>
+          </property>
+          <property>
+            <definition>Inter-trial-interval (period until next trial)</definition>
+            <value>-1<unit>ms</unit><type>int</type></value>
+            <name>ITI</name>
+          </property>
+          <name>Periods</name>
+          <section>
+            <definition>Information on periods calculated with analogue events detected with grip force signals</definition>
+            <property>
+              <definition>Reach-to-grasp time (period between SR and OT)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>RGT</name>
+            </property>
+            <property>
+              <definition>Pull time (period between OT and HS)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>PT</name>
+            </property>
+            <property>
+              <definition>Movement time (period between GO-ON and HS)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>MT</name>
+            </property>
+            <property>
+              <definition>Hold time (period between HS and RW)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>HT</name>
+            </property>
+            <property>
+              <definition>Time until object is released (period between RW an OR </definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>ORT</name>
+            </property>
+            <name>GripForceSignals</name>
+            <type>subsession/task/trial/events</type>
+          </section>
+          <section>
+            <definition>Information on periods calculated with analogue events detected with object displacement signal</definition>
+            <property>
+              <definition>Reach-to-grasp time (period between SR and OT)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>RGT</name>
+            </property>
+            <property>
+              <definition>Pull time (period between OT and HS)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>PT</name>
+            </property>
+            <property>
+              <definition>Movement time (period between GO-ON and HS)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>MT</name>
+            </property>
+            <property>
+              <definition>Hold time (period between HS and RW)</definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>HT</name>
+            </property>
+            <property>
+              <definition>Time until object is released (period between RW an OR </definition>
+              <value>-1<unit>ms</unit><type>int</type></value>
+              <name>ORT</name>
+            </property>
+            <name>DisplacementSignal</name>
+            <type>subsession/task/trial/events</type>
+          </section>
+          <type>subsession/task/trial/periods</type>
+        </section>
+        <type>subsession/task/trial</type>
+      </section>
+      <type>subsession/task</type>
+    </section>
+    <type>subsession</type>
+  </section>
+  <version>0.1</version>
+</odML>

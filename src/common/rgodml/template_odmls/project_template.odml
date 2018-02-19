@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl" href="odmlTerms.xsl"?>
+<?xml-stylesheet  type="text/xsl" href="odml.xsl"?>
+<odML version="1">
+  <section>
+    <definition>Information on the experimental project</definition>
+    <property>
+      <definition>Name of project</definition>
+      <value>reach-to-grasp<type>string</type></value>
+      <name>Name</name>
+    </property>
+    <property>
+      <definition>Type of project</definition>
+      <value>electrophysiology<type>string</type></value>
+      <name>Type</name>
+    </property>
+    <property>
+      <definition>Name of the project</definition>
+      <value>motor behavior<type>string</type></value>
+      <name>Subtype</name>
+    </property>
+    <property>
+      <definition>Project description URL</definition>
+      <value>file://-<type>url</type></value>
+      <name>Description</name>
+    </property>
+    <property>
+      <definition>Affilitations of involved collaborators</definition>
+      <value>Inst. of Neuroscience and Medicine (INM-6) and Inst. for Advanced Simulation (IAS-6), Juelich Research Centre &amp; JARA, Juelich, Germany<type>string</type></value>
+      <value>Inst. de Neurosciences de la Timone (INT), UMR 7289, CNRS - Aix Marseille Univ., Marseille, France<type>string</type></value>
+      <name>Collaborators</name>
+    </property>
+    <name>Project</name>
+    <section>
+      <definition>Information on tasks</definition>
+      <property>
+        <definition>Names of possible task designs</definition>
+        <value>OneCue<type>string</type></value>
+        <value>TwoCues<type>string</type></value>
+        <value>Observation<type>string</type></value>
+        <value>Sleep<type>string</type></value>
+        <value>Mapping<type>string</type></value>
+        <name>Designs</name>
+      </property>
+      <property>
+        <definition>Name of used task design</definition>
+        <value>TwoCues<type>string</type></value>
+        <name>UsedDesign</name>
+      </property>
+      <property>
+        <definition>Task designs descriptions URL</definition>
+        <value>file://-<type>url</type></value>
+        <name>Description</name>
+      </property>
+      <name>TaskDesigns</name>
+      <type>project</type>
+    </section>
+    <section>
+      <definition>Information on trial type codes</definition>
+      <property>
+        <definition>Side grip / low force code</definition>
+        <value>89<type>int</type></value>
+        <name>SGLF</name>
+      </property>
+      <property>
+        <definition>Side grip / high force code</definition>
+        <value>86<type>int</type></value>
+        <name>SGHF</name>
+      </property>
+      <property>
+        <definition>Precision grip / low force code</definition>
+        <value>169<type>int</type></value>
+        <name>PGLF</name>
+      </property>
+      <property>
+        <definition>Precision grip / high force code</definition>
+        <value>166<type>int</type></value>
+        <name>PGHF</name>
+      </property>
+      <property>
+        <definition>Low force / side grip code</definition>
+        <value>149<type>int</type></value>
+        <name>LFSG</name>
+      </property>
+      <property>
+        <definition>Low force / precision grip code</definition>
+        <value>154<type>int</type></value>
+        <name>LFPG</name>
+      </property>
+      <property>
+        <definition>High force / side grip code</definition>
+        <value>101<type>int</type></value>
+        <name>HFSG</name>
+      </property>
+      <property>
+        <definition>High force / precision grip code</definition>
+        <value>106<type>int</type></value>
+        <name>HFPG</name>
+      </property>
+      <property>
+        <definition>Side grip / side grip code</definition>
+        <value>85<type>int</type></value>
+        <name>SGSG</name>
+      </property>
+      <property>
+        <definition>Precision grip / precision grip code</definition>
+        <value>170<type>int</type></value>
+        <name>PGPG</name>
+      </property>
+      <property>
+        <definition>Code for not detectable trial type</definition>
+        <value>0<type>int</type></value>
+        <name>n.d.</name>
+      </property>
+      <name>TrialTypeCodes</name>
+      <type>codes</type>
+    </section>
+    <section>
+      <definition>Information on condition codes (trial type combination codes)</definition>
+      <property>
+        <definition>Grip first trials, all grip and force types</definition>
+        <value>SGLF<type>string</type></value>
+        <value>SGHF<type>string</type></value>
+        <value>PGLF<type>string</type></value>
+        <value>PGHF<type>string</type></value>
+        <name>cnd_1</name>
+      </property>
+      <property>
+        <definition>Force first trials, all force and grip types</definition>
+        <value>SGLF<type>string</type></value>
+        <value>SGHF<type>string</type></value>
+        <value>PGLF<type>string</type></value>
+        <value>PGHF<type>string</type></value>
+        <name>cnd_2</name>
+      </property>
+      <property>
+        <definition>Grip first trials, all grip types, but only low force</definition>
+        <value>SGLF<type>string</type></value>
+        <value>PGLF<type>string</type></value>
+        <name>cnd_11</name>
+      </property>
+      <property>
+        <definition>Grip first trials, all grip types, but only high force</definition>
+        <value>SGHF<type>string</type></value>
+        <value>PGHF<type>string</type></value>
+        <name>cnd_12</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only side grip, but all force types</definition>
+        <value>SGHF<type>string</type></value>
+        <value>SGLF<type>string</type></value>
+        <name>cnd_13</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only precision grip, but all force types</definition>
+        <value>PGHF<type>string</type></value>
+        <value>PGLF<type>string</type></value>
+        <name>cnd_14</name>
+      </property>
+      <property>
+        <definition>Force first trials, only low force, but all grip types</definition>
+        <value>LFSG<type>string</type></value>
+        <value>LFPG<type>string</type></value>
+        <name>cnd_21</name>
+      </property>
+      <property>
+        <definition>Force first trials, only high force, but all grip types</definition>
+        <value>HFSG<type>string</type></value>
+        <value>HFPG<type>string</type></value>
+        <name>cnd_22</name>
+      </property>
+      <property>
+        <definition>Force first trials, all force types, but only side grip</definition>
+        <value>HFSG<type>string</type></value>
+        <value>LFSG<type>string</type></value>
+        <name>cnd_23</name>
+      </property>
+      <property>
+        <definition>Force first trials, all force types, but only side grip</definition>
+        <value>HFPG<type>string</type></value>
+        <value>LFPG<type>string</type></value>
+        <name>cnd_24</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only side grip, only low force</definition>
+        <value>SGLF<type>string</type></value>
+        <name>cnd_131</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only side grip, only high force</definition>
+        <value>SGHF<type>string</type></value>
+        <name>cnd_132</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only side grip, force needs to be guessed</definition>
+        <value>SGSG<type>string</type></value>
+        <name>cnd_133</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only precision grip, only low force</definition>
+        <value>PGLF<type>string</type></value>
+        <name>cnd_141</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only precision grip, only high force</definition>
+        <value>PGHF<type>string</type></value>
+        <name>cnd_142</name>
+      </property>
+      <property>
+        <definition>Grip first trials, only precision grip, force needs to be guessed</definition>
+        <value>PGPG<type>string</type></value>
+        <name>cnd_144</name>
+      </property>
+      <property>
+        <definition>Force first trials, only low force, only side grip</definition>
+        <value>LFSG<type>string</type></value>
+        <name>cnd_213</name>
+      </property>
+      <property>
+        <definition>Force first trials, only low force, only precision grip</definition>
+        <value>LFPG<type>string</type></value>
+        <name>cnd_214</name>
+      </property>
+      <property>
+        <definition>Force first trials, only high force, only side grip</definition>
+        <value>HFSG<type>string</type></value>
+        <name>cnd_223</name>
+      </property>
+      <property>
+        <definition>Force first trials, only high force, only precision grip</definition>
+        <value>HFPG<type>string</type></value>
+        <name>cnd_224</name>
+      </property>
+      <name>ConditionCodes</name>
+      <type>codes</type>
+    </section>
+    <section>
+      <definition>Information on trial performance codes</definition>
+      <property>
+        <definition>Performance code of a correctly completed trial</definition>
+        <value>correct trial<type>string</type></value>
+        <name>pc_127</name>
+      </property>
+      <property>
+        <definition>Performance code of a trial where switch is released too early (before fixation point)</definition>
+        <value>SR &lt; FP-ON<type>string</type></value>
+        <name>pc_64</name>
+      </property>
+      <property>
+        <definition>Performance code of a trial where switch is released too early (before delay cue is turned on)</definition>
+        <value>SR &lt; CUE-ON<type>string</type></value>
+        <name>pc_96</name>
+      </property>
+      <property>
+        <definition>Performance code of a trial where switch is released too early (before delay cue is turned off)</definition>
+        <value>SR &lt; CUE-OFF<type>string</type></value>
+        <name>pc_112</name>
+      </property>
+      <property>
+        <definition>Performance code of a trial where switch is released too early (before GO cue turns on)</definition>
+        <value>SR &lt; GO-ON<type>string</type></value>
+        <name>pc_120</name>
+      </property>
+      <property>
+        <definition>Performance code of a trial where switch is not released</definition>
+        <value>no SR<type>string</type></value>
+        <name>pc_124</name>
+      </property>
+      <property>
+        <definition>Performance code of a trial where the wrong grip type is used</definition>
+        <value>grip error<type>string</type></value>
+        <name>pc_126</name>
+      </property>
+      <name>PerformanceCodes</name>
+      <type>codes</type>
+    </section>
+    <section>
+      <definition>Information on the programmed trial settings</definition>
+      <property>
+        <definition>Digital recorded trial events</definition>
+        <value>TS<type>string</type></value>
+        <value>FP-ON<type>string</type></value>
+        <value>CUE-ON<type>string</type></value>
+        <value>CUE-OFF<type>string</type></value>
+        <value>GO-ON<type>string</type></value>
+        <value>SR<type>string</type></value>
+        <value>RW<type>string</type></value>
+        <value>GO-OFF<type>string</type></value>
+        <name>DigitalEvents</name>
+      </property>
+      <property>
+        <definition>Analog recorded trial events</definition>
+        <value>OT<type>string</type></value>
+        <value>HS<type>string</type></value>
+        <value>OR<type>string</type></value>
+        <value>BTB<type>string</type></value>
+        <name>AnalogEvents</name>
+      </property>
+      <property>
+        <definition>Duration of trial start period (period between TS and FP)</definition>
+        <value>400.0<unit>ms</unit><type>float</type></value>
+        <name>TSP</name>
+      </property>
+      <property>
+        <definition>Duration of fixation point period (period between FP and CUE-ON)</definition>
+        <value>400.0<unit>ms</unit><type>float</type></value>
+        <name>FPP</name>
+      </property>
+      <property>
+        <definition>Duration of CUE period (period between CUE-ON and CUE-OFF</definition>
+        <value>300.0<unit>ms</unit><type>float</type></value>
+        <name>CUE</name>
+      </property>
+      <property>
+        <definition>Duration of delay period (period between CUE-OFF and GO)</definition>
+        <value>1000.0<unit>ms</unit><type>float</type></value>
+        <name>DELAY</name>
+      </property>
+      <property>
+        <definition>Duration of holding time (period between HS and RW)</definition>
+        <value>500.0<unit>ms</unit><type>float</type></value>
+        <name>HT</name>
+      </property>
+      <property>
+        <definition>Time limit for movement (period between GO-ON and HS)</definition>
+        <value>700.0<unit>ms</unit><type>float</type></value>
+        <name>MTLimit</name>
+      </property>
+      <property>
+        <definition>Time limit for reaction time (period between GO-ON and SR)</definition>
+        <value>1000.0<unit>ms</unit><type>float</type></value>
+        <name>RTLimit</name>
+      </property>
+      <property>
+        <definition>Min and max time to pull the object into the holding position (period between OT and HS)</definition>
+        <value>-1.0<unit>ms</unit><type>float</type></value>
+        <name>PTLimits</name>
+      </property>
+      <name>TrialSettings</name>
+      <type>setup/control</type>
+    </section>
+    <section>
+      <definition>Information on the settings of the target object</definition>
+      <property>
+        <definition>Distance window for holding the object in place</definition>
+        <value>4.0<unit>mm</unit><type>int</type></value>
+        <value>14.0<unit>mm</unit><type>int</type></value>
+        <name>HoldPosRange</name>
+      </property>
+      <property>
+        <definition>Weight of object in low force modus</definition>
+        <value>100.0<unit>g</unit><type>float</type></value>
+        <name>LowForceWeight</name>
+      </property>
+      <property>
+        <definition>Weight of object in high force modus</definition>
+        <value>200.0<unit>g</unit><type>float</type></value>
+        <name>HighForceWeight</name>
+      </property>
+      <name>TargetObjectSettings</name>
+      <type>setup/control</type>
+    </section>
+    <type>project</type>
+  </section>
+  <version>0.1</version>
+</odML>

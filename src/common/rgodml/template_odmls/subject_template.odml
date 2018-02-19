@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet  type="text/xsl" href="odmlTerms.xsl"?>
+<?xml-stylesheet  type="text/xsl" href="odml.xsl"?>
+<odML version="1">
+  <section>
+    <definition>Information on the investigated experimental subject (animal or person)</definition>
+    <property>
+      <definition>Binomial species name (genus, species within genus)</definition>
+      <value>-<type>string</type></value>
+      <name>Species</name>
+    </property>
+    <property>
+      <definition>Commonly used (trivial) species name</definition>
+      <value>-<type>string</type></value>
+      <name>TrivialName</name>
+    </property>
+    <property>
+      <definition>Given name</definition>
+      <value>-<type>string</type></value>
+      <name>GivenName</name>
+    </property>
+    <property>
+      <definition>Identifier used in file names</definition>
+      <value>-<type>string</type></value>
+      <name>Identifier</name>
+    </property>
+    <property>
+      <definition>Gender (male or female)</definition>
+      <value>-<type>string</type></value>
+      <name>Gender</name>
+    </property>
+    <property>
+      <definition>Date of birth (yyyy-mm-dd)</definition>
+      <value>1111-11-11<type>date</type></value>
+      <name>Birthday</name>
+    </property>
+    <property>
+      <definition>Trained hand (left and/or right)</definition>
+      <value>-<type>string</type></value>
+      <name>ActiveHand</name>
+    </property>
+    <property>
+      <definition>Comment on existing disabilities</definition>
+      <value>-<type>text</type></value>
+      <name>Disabilities</name>
+    </property>
+    <property>
+      <definition>Comment on the general character/personality</definition>
+      <value>-<type>text</type></value>
+      <name>Character</name>
+    </property>
+    <name>Subject</name>
+    <section>
+      <definition>Information on the training given to subject</definition>
+      <property>
+        <definition>Full name(s) of person(s) responsible for the training</definition>
+        <value>-<type>string</type></value>
+        <name>Coach</name>
+      </property>
+      <property>
+        <definition>Start date of training</definition>
+        <value>1111-11-11<type>date</type></value>
+        <name>Start</name>
+      </property>
+      <property>
+        <definition>End date of training</definition>
+        <value>1111-11-11<type>date</type></value>
+        <name>End</name>
+      </property>
+      <property>
+        <definition>Training protocol URL</definition>
+        <value>file://-<type>url</type></value>
+        <name>Protocol</name>
+      </property>
+      <property>
+        <definition>Comment on training</definition>
+        <value>-<type>string</type></value>
+        <name>Comment</name>
+      </property>
+      <name>Training</name>
+      <type>subject/preparation</type>
+    </section>
+    <section>
+      <definition>Information on the array implant performed on subject</definition>
+      <property>
+        <definition>Date of the surgery</definition>
+        <value>1111-11-11<type>date</type></value>
+        <name>Date</name>
+      </property>
+      <property>
+        <definition>Full name(s) of the person(s) responsible for the surgery</definition>
+        <value>-<type>string</type></value>
+        <name>Surgeon</name>
+      </property>
+      <property>
+        <definition>Surgery protocol URL</definition>
+        <value>file://-<type>url</type></value>
+        <name>Protocol</name>
+      </property>
+      <property>
+        <definition>URL of pictures taken during the surgery</definition>
+        <value>file://-<type>url</type></value>
+        <name>Pictures</name>
+      </property>
+      <property>
+        <definition>Hemisphere (left and/or right) in which surgery was performed</definition>
+        <value>-<type>string</type></value>
+        <name>Hemisphere</name>
+      </property>
+      <property>
+        <definition>Comment on the surgery</definition>
+        <value>-<type>string</type></value>
+        <name>Comment</name>
+      </property>
+      <name>ArrayImplant</name>
+      <type>subject/preparation</type>
+    </section>
+    <type>subject</type>
+  </section>
+  <version>0.1</version>
+</odML>
