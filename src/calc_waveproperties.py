@@ -232,7 +232,6 @@ if __name__ == '__main__':
     pc = projctrl.ProjectControl(
         project_name='reachgrasp-spikewave', 
         script_name='calc_waveproperties',
-        workspace_base='.', data_base='.',
         clear_data=False)
 
     # Fetch job ID
