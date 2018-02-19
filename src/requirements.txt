@@ -2,7 +2,7 @@ numpy
 quantities
 matplotlib
 h5py
-odml==1.2
+odml==1.1
 elephant>=0.4.1
 git+git://github.com/INM-6/python-neo@blackrockio_legacy_pytables3
 
