@@ -114,6 +114,8 @@ def fetch_data(sessionnames):
     security block to defend against what looks like a DDOS attack.
     """
 
+    return
+
     # Nothing to do if we are on the server
     if platform.node()[:8] == 'hambach' or \
             platform.node()[:10] == 'blaustein':
@@ -190,7 +192,7 @@ def get_data_dir(sessionname):
         Directory where to find the metadata (no trailing /).
     """
 
-    return ("datasets/","datasets/")
+    return ("datasets/","reachgrasp-spikewave/metadata/Meta" + subdir)
 
     # Determine subdirectory
     subdir = 'Data' + monkey_names[sessionname[0]]
