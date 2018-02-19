@@ -25,7 +25,7 @@ import rgodml.preprocessing_tree as preprocessing
 #import rgodml.odml_utils
 import rgodml.odml_io
 
-import wrapper as h5py
+import h5py_wrapper.wrapper as h5py
 
 
 def odml_default_value():
