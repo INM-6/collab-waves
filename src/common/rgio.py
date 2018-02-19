@@ -225,14 +225,14 @@ class ReachGraspIO(BlackrockIO):
     __gf_types = dict(__grip, **__force)
 
     __grip_first_str = [''.join(i) for i in list(itertools.product(
-        __grip.keys(), __force.keys()))]
+        list(__grip.keys()), list(__force.keys())))]
     __grip_only_str = [[''.join(i) for i in list(itertools.product(
-        [__grip.keys()[j]], [__grip.keys()[j]]))][0] for j in range(2)]
+        [list(__grip.keys()[j])], [list(__grip.keys()[j])]))][0] for j in range(2)]
 
     __force_first_str = [''.join(i) for i in list(itertools.product(
-        __force.keys(), __grip.keys()))]
+        list(__force.keys()), list(__grip.keys())))]
     __force_only_str = [[''.join(i) for i in list(itertools.product(
-        [__force.keys()[j]], [__force.keys()[j]]))][0] for j in range(2)]
+        [list(__force.keys()[j])], [list(__force.keys()[j])]))][0] for j in range(2)]
 
     __list_trial_types = __grip_first_str + __grip_only_str + \
         __force_first_str + __force_only_str
