@@ -23,11 +23,11 @@ import quantities as pq
 
 from rg.rgio import ReachGraspIO
 
-import common.projctrl as projctrl
-import common.h5py_wrapper.wrapper as h5pyw
+import projctrl as projctrl
+import h5py_wrapper.wrapper as h5pyw
 
-import common.wave_main as wave_main
-import common.wave_plots as wave_plots
+import wave_main as wave_main
+import wave_plots as wave_plots
 
 __updated__ = "2018-02-19"
 
