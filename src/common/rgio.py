@@ -875,7 +875,7 @@ class ReachGraspIO(BlackrockIO):
         #     digit 5: Switch release of working hand
         #     digit 6: Fixation point
         #     digit 7: Reward
-        for digit_i in xrange(8):
+        for digit_i in range(8):
             # Construct a vector that is 1 if a bit goes on, and -1 if a bit
             # goes off. Note that we purposely do not make assumptions about
             # the state of bits at the beginning and end of the vector, i.e.,
@@ -932,9 +932,9 @@ class ReachGraspIO(BlackrockIO):
         """
         """
         # Find onsets and offsets of the 4 cue LEDs after the trial_start
-        LEDon_idx = [sys.maxint] * 4
-        LEDoff_idx = [sys.maxint] * 4
-        for LEDi in xrange(4):
+        LEDon_idx = [sys.maxsize] * 4
+        LEDoff_idx = [sys.maxsize] * 4
+        for LEDi in range(4):
             # LED led_i is turned on
             LEDon_idx[LEDi], last_trial = \
                 self.__detect_next_eventidx(evX_indices=on_indices[LEDi],
@@ -1309,8 +1309,8 @@ class ReachGraspIO(BlackrockIO):
 
                     self.is_sorted = True
         else:
-            self.__sua_ids = [[] for _ in xrange(96)]
-            self.__mua_ids = [[] for _ in xrange(96)]
+            self.__sua_ids = [[] for _ in range(96)]
+            self.__mua_ids = [[] for _ in range(96)]
 
             self.is_sorted = False
 
@@ -1861,7 +1861,7 @@ class ReachGraspIO(BlackrockIO):
                     else:
                         tstart = n_starts[seg_i] / self.nev_unit
                     if n_stops[seg_i] == None:
-                        tstop = sys.maxint
+                        tstop = sys.maxsize
                     else:
                         tstop = n_stops[seg_i] / self.nev_unit
                     idx = np.nonzero(np.logical_and(

@@ -1004,7 +1004,7 @@ def calc_good_el(block):
     a = np.tile([False], (100))
 
     # Go through all electrodes
-    for i in xrange(100):
+    for i in range(100):
         # Get the signal
         asig_list = pick.get_sig_analogsignal(
             block, {'ca_id': [i + 1], 'rejIFC': [False]})

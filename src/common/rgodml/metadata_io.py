@@ -270,11 +270,11 @@ def load_blackrock_electrodes_info(load_from):
     """
     output = None
     if os.path.exists(load_from):
-        csv_file = csv.DictReader(open(load_from, 'rb'), delimiter='\t')
+        csv_file = csv.DictReader(open(load_from, 'r'), delimiter='\t')
 
         csv_dicts = []
         for line in csv_file:
-            csv_dicts.append(dict((k, v) for k, v in line.iteritems()))
+            csv_dicts.append(dict((k, v) for k, v in line.items()))
 
         output = {}
         for d in csv_dicts:

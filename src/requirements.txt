@@ -4,6 +4,6 @@ matplotlib
 h5py
 odml==1.3
 elephant>=0.4.1
-git+git://github.com/INM-6/python-neo@blackrockio_legacy_pytables3
+git+git://github.com/INM-6/python-neo@blackrockio_legacy_pytables3_py3
 xlrd
 xlwt
