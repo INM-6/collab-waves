@@ -1039,7 +1039,7 @@ def _analyze_block(block):
     common_sf = None
     common_ts = None
 
-    asig_list = pick.get_sig_analogsignal(block, {'rejMid': [False]})
+    asig_list = pick.get_sig_analogsignal(block, {'rejIFC': [False]})
     for asig in asig_list:
         len_asig = len(asig)
         sr_asig = asig.sampling_rate
