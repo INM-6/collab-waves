@@ -1,6 +1,7 @@
 numpy
 quantities
 matplotlib
+tables
 h5py
 odml==1.3
 elephant>=0.4.1
