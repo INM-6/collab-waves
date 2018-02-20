@@ -1083,7 +1083,7 @@ def calc_phases(block):
     common_len, common_sf, common_ts = _analyze_block(block)
 
     # Create an array
-    a = np.zeros((common_len, 100))
+    a = np.zeros((int(common_len), 100))
 
     # Go through all electrodes
     for i in xrange(100):
@@ -1121,7 +1121,7 @@ def calc_amps(block):
     common_len, common_sf, common_ts = _analyze_block(block)
 
     # Create an array
-    a = np.zeros((common_len, 100))
+    a = np.zeros((int(common_len), 100))
 
     # Go through all electrodes
     for i in xrange(100):
@@ -1213,9 +1213,9 @@ def calc_phgr(sigarray, nextneighbor_distance, good_el):
                     pdiff_col.append(
                         np.sign(j - i) * u / (dist / 1000.))
             if len(pdiff_row) == 0:
-                pdiff_row = [np.zeros(common_len)]
+                pdiff_row = [np.zeros(int(common_len))]
             if len(pdiff_col) == 0:
-                pdiff_col = [np.zeros(common_len)]
+                pdiff_col = [np.zeros(int(common_len))]
 
             result[:, i] = np.mean(np.array(pdiff_row), axis=0) + \
                 np.complex(0, 1) * np.mean(np.array(pdiff_col), axis=0)
@@ -1259,7 +1259,7 @@ def calc_phgr_stencil(sigarray, good_el):
     common_len = sigarray.shape[0]
 
     # Create an array
-    result = np.zeros((common_len, 100), dtype=np.complex)
+    result = np.zeros((int(common_len), 100), dtype=np.complex)
 
     # Go through all electrodes
     for i in xrange(100):
@@ -1357,7 +1357,7 @@ def calc_phlat(sigarray, reference_phase, good_el):
     common_len = sigarray.shape[0]
 
     # create an array
-    result = np.zeros((common_len, 100))
+    result = np.zeros((int(common_len), 100))
 
     # go through all electrodes
     for i in xrange(100):
@@ -1421,7 +1421,7 @@ def calc_cohphgr(sigarray, nextneighbor_distance, good_el):
     common_len = sigarray.shape[0]
 
     # create an array
-    result = np.zeros((common_len, 100), dtype=np.complex)
+    result = np.zeros((int(common_len), 100), dtype=np.complex)
 
     # go through all electrodes
     for i in xrange(100):
