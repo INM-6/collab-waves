@@ -154,7 +154,7 @@ def calc_waveproperties(job_id, selected_subsession, selected_filter):
         except:
             rej = h5py.load_h5(os.path.join(
                 metadata_dir, "source", "rejections", "data",
-                selected_subsession_name + "_rej_012Hz-035Hz-03o.hdf5"))
+                selected_subsession_name + "_rej_012Hz-040Hz-03o.hdf5"))
             list_of_rej_el = rej['elrej']['bad_electrodes']
         print(list_of_rej_el)
         for asig in neo_block.segments[0].analogsignals:
