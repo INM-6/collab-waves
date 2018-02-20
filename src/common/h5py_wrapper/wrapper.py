@@ -282,9 +282,10 @@ def _evaluate_key(f):
     """
     name = os.path.basename(f.name)  # to return only name of this level
     if ('_key_type' in f.attrs.keys() and
-            f.attrs['_key_type'] not in ['str', 'unicode', 'string_']):
+            f.attrs['_key_type'] not in ['str', 'unicode', 'string_', b'str']):
         name = ast.literal_eval(name)
     return name
+#.decode('UTF-8')
 
 
 def _load_custom_shape(f):

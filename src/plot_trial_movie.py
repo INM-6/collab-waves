@@ -17,16 +17,16 @@ import matplotlib.offsetbox
 import quantities as pq
 import neo.io.hdf5io as nh5
 
-import common.pick as pick
-from rg.rgio import ReachGraspIO
+import pick as pick
+from rgio import ReachGraspIO
 
-import common.projctrl as projctrl
-import common.h5py_wrapper.wrapper as h5pyw
+import projctrl as projctrl
+import h5py_wrapper.wrapper as h5pyw
 
-import common.wave_main as wave_main
-import common.wave_plots as wave_plots
+import wave_main as wave_main
+import wave_plots as wave_plots
 
-__updated__ = "2018-02-19"
+__updated__ = "2018-02-20"
 
 
 # =============================================================================
@@ -55,8 +55,6 @@ def phasemovie_frames(frame_i, t_i, frame_interval):
         neo_block.segments[0].epocharrays[0].annotations['trial_id'] ==
         param['trial_id'])
     if x[0][0] != selected_trial_number:
-        print x[0][0]
-        print selected_trial_number
         raise ValueError
 
 
@@ -107,7 +105,7 @@ def phasemovie_frames(frame_i, t_i, frame_interval):
         signal_f_cut.magnitude, color=[1, 0.2, 0.7])
     wave_plots.plot_precise_events(
         results_events['event_stat'][selected_monkey][
-            str(selected_subsession_cnd)]['all'],
+            selected_subsession_cnd]['all'],
         -6, 6,
         1, meanstyle='k:', stdstyle=None)
     eticks = []
@@ -115,7 +113,7 @@ def phasemovie_frames(frame_i, t_i, frame_interval):
     for ev in wave_plots.event_names:
         eticks.append(
             results_events['event_stat'][selected_monkey][
-                str(selected_subsession_cnd)]['all'][ev][0])
+                selected_subsession_cnd]['all'][ev][0])
         eticks_labels.append(ev)
     ax.set_xticks(eticks)
     ax.set_xticklabels(eticks_labels, rotation=45, ha='right')
@@ -173,38 +171,9 @@ jobparameters = wave_main.create_file_filter_task(
     wave_main.selected_datasets, wave_main.selected_filter_names,
     fetch=False)
 
-selected_subsession = jobparameters[1]
-selected_filter = jobparameters[1]
-
-# Manual setting
-selected_subsession = wave_main.selected_datasets[60]
+selected_subsession = jobparameters[0][0]
 selected_filter = wave_main.selected_filter_names[0]
 selected_trial_id = 45
-
-selected_subsession = wave_main.selected_datasets[1]
-selected_filter = wave_main.selected_filter_names[0]
-selected_trial_id = 81
-
-selected_subsession = wave_main.selected_datasets[10]
-selected_filter = wave_main.selected_filter_names[0]
-selected_trial_id = 51
-
-selected_subsession = wave_main.selected_datasets[3]
-selected_filter = wave_main.selected_filter_names[0]
-selected_trial_id = 19
-selected_trial_id = 48
-
-# selected_subsession = wave_main.selected_datasets[1]
-# selected_filter = wave_main.selected_filter_names[1]
-# selected_trial_id = 81
-
-# selected_subsession = wave_main.selected_datasets[15]
-# selected_filter = wave_main.selected_filter_names[0]
-# selected_trial_id = 45
-
-# selected_subsession = wave_main.selected_datasets[30]
-# selected_filter = wave_main.selected_filter_names[1]
-# selected_trial_id = 45
 
 # selected_subsession = wave_main.selected_datasets[45]
 # selected_filter = wave_main.selected_filter_names[1]
@@ -225,7 +194,7 @@ data_dir, metadata_dir = wave_main.get_data_dir(selected_subsession_name)
 # Result directory contains filename, filter and trial to overcome problems
 # with number of files in a directory
 pc = projctrl.ProjectControl(
-    project_name='reachgrasp-waves',
+    project_name='reachgrasp-spikewave',
     script_name='ms_figs/movs1_small/movie_%s_filter_%s_trialid_%i' %
     (selected_subsession_name, selected_filter, selected_trial_id),
     clear_data=True)
@@ -236,12 +205,6 @@ pc = projctrl.ProjectControl(
 
 param_prop = h5pyw.load_h5(
     pc.result_domain + '/calc_waveproperties/' + selected_subsession_name +
-    '_filter_' + selected_filter + '_param.h5')
-param_meas = h5pyw.load_h5(
-    pc.result_domain + '/calc_wavemeas/' + selected_subsession_name +
-    '_filter_' + selected_filter + '_param.h5')
-param_class = h5pyw.load_h5(
-    pc.result_domain + '/calc_waveclass/' + selected_subsession_name +
     '_filter_' + selected_filter + '_param.h5')
 
 param = {}
@@ -306,12 +269,6 @@ subsessionobj.add_trials_around(
 # Read neo frames
 results_prop = h5pyw.load_h5(
     pc.result_domain + os.path.sep + 'calc_waveproperties' + os.path.sep +
-    selected_subsession_name + '_filter_' + selected_filter + '_info.h5')
-results_meas = h5pyw.load_h5(
-    pc.result_domain + os.path.sep + 'calc_wavemeas' + os.path.sep +
-    selected_subsession_name + '_filter_' + selected_filter + '_info.h5')
-results_class = h5pyw.load_h5(
-    pc.result_domain + os.path.sep + 'calc_waveclass' + os.path.sep +
     selected_subsession_name + '_filter_' + selected_filter + '_info.h5')
 
 ho = nh5.NeoHdf5IO(
@@ -396,18 +353,18 @@ wave_plots.create_frames(
     frame_name=filename,
     figsize=(10.24, 7.80),
     keep_eps=False,
-    spare_core=2)
+    spare_core=-1)
 
 # Assemble movie
-wave_plots.movie_maker(
-    frames_directory=pc.figure_path + os.path.sep + "png",
-    movie_directory=pc.figure_path + os.path.sep + "mov",
-    frame_format="png",
-    movie_name=filename,
-    frames_per_sec=15,
-    quality=23,
-    scale_x=1024,
-    scale_y=780)
+# wave_plots.movie_maker(
+#     frames_directory=pc.figure_path + os.path.sep + "png",
+#     movie_directory=pc.figure_path + os.path.sep + "mov",
+#     frame_format="png",
+#     movie_name=filename,
+#     frames_per_sec=15,
+#     quality=23,
+#     scale_x=1024,
+#     scale_y=780)
 
 # Write parameters to disk
 print("Saving  parameters - %s" % selected_subsession_name)

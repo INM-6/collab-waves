@@ -67,7 +67,7 @@ def get_trials_AnalogSignal(bl, trial_prop, signal_prop, reset_times=True, cut_i
             # TODO: hardcoding this is bad
             if ep.annotations['type'] == 'trial':
                 # By default take all trials
-                take_trial = np.array([True for _ in xrange(len(ep.durations))])
+                take_trial = np.array([True for _ in range(len(ep.durations))])
 
                 # Now remove trials based on user _input
                 for k in trial_prop.keys():
@@ -228,7 +228,7 @@ def get_trials_SpikeTrain(bl, trial_prop, signal_prop, reset_times=True):
             # TODO: hardcoding this is bad
             if ep.annotations['type'] == 'trial':
                 # By default take all trials
-                take_trial = np.array([True for _ in xrange(len(ep.durations))])
+                take_trial = np.array([True for _ in range(len(ep.durations))])
 
                 # Now remove trials based on user _input
                 for k in trial_prop.keys():
@@ -615,7 +615,7 @@ def get_trials(bl, epoch_prop, as_prop=None, st_prop=None, reset_times=True,
 
                 # by default take all trials
                 take_trial = np.array(
-                    [True for _ in xrange(len(ep.durations))])
+                    [True for _ in range(len(ep.durations))])
                 # now remove trials based on user _input
                 for k in epoch_prop.keys():
                     take_trial = \
