@@ -1087,7 +1087,7 @@ def calc_phases(block):
     a = np.zeros((int(common_len), 100))
 
     # Go through all electrodes
-    for i in xrange(100):
+    for i in range(100):
         # Get the signal
         asig_list = pick.get_sig_analogsignal(
             block, {'ca_id': [i + 1], 'rejMid': [False]})
@@ -1125,7 +1125,7 @@ def calc_amps(block):
     a = np.zeros((int(common_len), 100))
 
     # Go through all electrodes
-    for i in xrange(100):
+    for i in range(100):
         # Get the signal
         asig_list = pick.get_sig_analogsignal(
             block, {'ca_id': [i + 1], 'rejMid': [False]})
@@ -1170,7 +1170,7 @@ def calc_phgr(sigarray, nextneighbor_distance, good_el):
     result = np.zeros((common_len, 100), dtype=np.complex)
 
     # Go through all electrodes
-    for i in xrange(100):
+    for i in range(100):
         if good_el[i]:
             pdiff_row = []
             pdiff_col = []
@@ -1263,7 +1263,7 @@ def calc_phgr_stencil(sigarray, good_el):
     result = np.zeros((int(common_len), 100), dtype=np.complex)
 
     # Go through all electrodes
-    for i in xrange(100):
+    for i in range(100):
         if good_el[i]:
             # Create gradient along row
             nextneighbors = get_nn_row(i + 1, 2)
@@ -1361,7 +1361,7 @@ def calc_phlat(sigarray, reference_phase, good_el):
     result = np.zeros((int(common_len), 100))
 
     # go through all electrodes
-    for i in xrange(100):
+    for i in range(100):
         if good_el[i]:
             # get time slice
             sig = sigarray[:, i].magnitude
@@ -1425,7 +1425,7 @@ def calc_cohphgr(sigarray, nextneighbor_distance, good_el):
     result = np.zeros((int(common_len), 100), dtype=np.complex)
 
     # go through all electrodes
-    for i in xrange(100):
+    for i in range(100):
         if good_el[i]:
 
             nextneighbors = get_nn(i + 1, nextneighbor_distance)
@@ -1601,8 +1601,8 @@ def calc_meas_contingency(signal, good_el):
 
     # consider only electrodes which are not on the border
     cons_el = []
-    for i in xrange(1, 9):
-        for j in xrange(1, 9):
+    for i in range(1, 9):
+        for j in range(1, 9):
             cons_el.append(i + j * 10)
 
     # pre-calculate angles
@@ -1822,8 +1822,8 @@ def calc_meas_avg_velocity_directed(signal_phase, signal_phgr, good_el, f):
 
     # consider only electrodes which are not on the border
     cons_el = []
-    for i in xrange(1, 9):
-        for j in xrange(1, 9):
+    for i in range(1, 9):
+        for j in range(1, 9):
             cons_el.append(i + j * 10)
 
     # pre-calculate angles
