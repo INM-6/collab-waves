@@ -29,7 +29,7 @@ import h5py_wrapper.wrapper as h5pyw
 import wave_main as wave_main
 import wave_plots as wave_plots
 
-__updated__ = "2018-02-19"
+__updated__ = "2018-02-20"
 
 
 def calc_events(job_id, selected_subsession, selected_filter):

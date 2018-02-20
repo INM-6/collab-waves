@@ -1,0 +1,60 @@
+import glob
+import os.path as path
+import os
+
+import wave_main.selected_datasets
+
+datapath = {
+    'l': "../DataLilou", 
+    'i': "../DataNikos2"}
+
+rule generate_events:
+    input:
+        expand(
+            "datasets/{session}.nev",
+            session=[
+                x[0] for x in wave_main.selected_datasets])
+    output:
+        "ProjectsData/reachgrasp-spikewave/results/calc_trial_events/events.h5"
+    shell:
+        "python reachgrasp-spikewave/src/calc_trial_events ;"
+
+
+rule generate_phases:
+    input:
+        lambda wildcards: "datasets/" + wildcards.session + ".nev"
+    output:
+        "ProjectsData/reachgrasp-spikewave/results/calc_waveproperties/{session}_filter_beta_large_neo_frames.h5"
+    python:
+        i == None
+	for j,k in enumerate(wave_main.selected_datasets):
+	    if j[0] == wildcards.session:
+	      i = k
+       if i is None:
+            raise ValueError("Unknown file.")
+    shell:
+        "python reachgrasp-spikewave/src/calc_waveproperties " + str(i) + " ;"
+
+rule generate_bollywood:
+    input:
+        lambda "ProjectsData/reachgrasp-spikewave/results/calc_waveproperties/"+ wildcards.session + "_filter_beta_large_neo_frames.h5"
+    output:
+        "ProjectsData/reachgrasp-spikewave/figs/ms_figs/movs1_small/movie_{session}_filter_beta_large_trialid_45/png/{session}_filter_beta_large_trialid_45_00000.png"
+    python:
+        i == None
+        for j,k in enumerate(wave_main.selected_datasets):
+            if j[0] == wildcards.session:
+              i = k
+	if i is None:
+	    raise ValueError("Unknown file.")
+    shell
+       "python reachgrasp-spikewave/src/calc_waveproperties " + str(i) + " ;"
+
+
+rule all:
+    input:
+        expand(
+	    "ProjectsData/reachgrasp-spikewave/figs/ms_figs/movs1_small/movie_{session}_filter_beta_large_trialid_45/png/${session}_filter_beta_large_trialid_45_00000.png",
+            session=[ 
+                x[0] for x in wave_main.selected_datasets])
+    output:
