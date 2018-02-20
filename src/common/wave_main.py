@@ -31,7 +31,8 @@ monkey_names = {
 # List of the 75 datasets and their condition code (1=grip-first, 2=force-
 # first) considered in this project
 selected_datasets = [
-    ['l101210-001', 1],
+    #['l101210-001', 1],
+    ['i140703-001', 1],
     ['i140703-001', 1]]
 
 # Short names for the used filters
