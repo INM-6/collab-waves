@@ -1,6 +1,6 @@
 numpy
 quantities
-matplotlib
+matplotlib>=2.1
 tables
 h5py
 odml==1.3
