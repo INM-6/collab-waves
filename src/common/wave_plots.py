@@ -302,9 +302,9 @@ def create_frames(
         pool.close()
         for r in results:
             r.get()
-        print "Multiprocessing done."
+        print("Multiprocessing done.")
         pool.join()
-        print "Multiprocessing joined."
+        print("Multiprocessing joined.")
         pool.terminate()
 
 
