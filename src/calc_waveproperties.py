@@ -37,7 +37,7 @@ import h5py_wrapper.wrapper as h5pyw
 
 import wave_main as wave_main
 
-__updated__ = "2018-02-19"
+__updated__ = "2018-02-20"
 
 
 def calc_waveproperties(job_id, selected_subsession, selected_filter):
@@ -156,7 +156,7 @@ def calc_waveproperties(job_id, selected_subsession, selected_filter):
                 metadata_dir, "source", "rejections", "data",
                 selected_subsession_name + "_rej_012Hz-035Hz-03o.hdf5"))
             list_of_rej_el = rej['elrej']['bad_electrodes']
-        print list_of_rej_el
+        print(list_of_rej_el)
         for asig in neo_block.segments[0].analogsignals:
             if asig.annotations['electrode_id'] in list_of_rej_el:
                 asig.annotations['rejIFC'] = True
