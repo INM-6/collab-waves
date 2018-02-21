@@ -2,7 +2,11 @@ import glob
 import os.path as path
 import os
 
-import wave_main.selected_datasets
+import sys
+sys.path.insert(0,"src")
+sys.path.insert(0,"src/common")
+
+from wave_main import selected_datasets
 
 datapath = {
     'l': "../DataLilou", 
@@ -13,7 +17,7 @@ rule generate_events:
         expand(
             "datasets/{session}.nev",
             session=[
-                x[0] for x in wave_main.selected_datasets])
+                x[0] for x in selected_datasets])
     output:
         "ProjectsData/reachgrasp-spikewave/results/calc_trial_events/events.h5"
     shell:
@@ -25,30 +29,29 @@ rule generate_phases:
         lambda wildcards: "datasets/" + wildcards.session + ".nev"
     output:
         "ProjectsData/reachgrasp-spikewave/results/calc_waveproperties/{session}_filter_beta_large_neo_frames.h5"
-    python:
-        i == None
-	for j,k in enumerate(wave_main.selected_datasets):
-	    if j[0] == wildcards.session:
-	      i = k
-       if i is None:
+    run:
+        i = None
+        for j,k in enumerate(selected_datasets):
+            if j[0] == wildcards.session:
+                i = k
+        if i==None:
             raise ValueError("Unknown file.")
-    shell:
-        "python reachgrasp-spikewave/src/calc_waveproperties " + str(i) + " ;"
+	    shell("python reachgrasp-spikewave/src/calc_waveproperties " + str(i))
 
 rule generate_bollywood:
     input:
-        lambda "ProjectsData/reachgrasp-spikewave/results/calc_waveproperties/"+ wildcards.session + "_filter_beta_large_neo_frames.h5"
+        lambda wildcards: "ProjectsData/reachgrasp-spikewave/results/calc_waveproperties/"+ wildcards.session + "_filter_beta_large_neo_frames.h5"
     output:
         "ProjectsData/reachgrasp-spikewave/figs/ms_figs/movs1_small/movie_{session}_filter_beta_large_trialid_45/png/{session}_filter_beta_large_trialid_45_00000.png"
-    python:
-        i == None
+    run:
+        i = None
         for j,k in enumerate(wave_main.selected_datasets):
             if j[0] == wildcards.session:
-              i = k
-	if i is None:
-	    raise ValueError("Unknown file.")
-    shell
-       "python reachgrasp-spikewave/src/calc_waveproperties " + str(i) + " ;"
+                i = k
+        if i != None:
+	        shell("python reachgrasp-spikewave/src/calc_waveproperties " + str(i))
+        else:
+            print("Unknown file.")
 
 
 rule all:
@@ -56,5 +59,4 @@ rule all:
         expand(
 	    "ProjectsData/reachgrasp-spikewave/figs/ms_figs/movs1_small/movie_{session}_filter_beta_large_trialid_45/png/${session}_filter_beta_large_trialid_45_00000.png",
             session=[ 
-                x[0] for x in wave_main.selected_datasets])
-    output:
+                x[0] for x in selected_datasets])
