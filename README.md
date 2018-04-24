@@ -1,2 +1,2 @@
 # reachgrasp-spikewave
-Contains the code for the spike-wave analysis on the reach-grasp data
+Contains the code for demo collab "Electrophysiology Data Analysis Showcase: Spatio-temporal Beta Activity in Motor Cortex"

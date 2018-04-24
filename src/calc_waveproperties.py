@@ -24,6 +24,9 @@ Output files:
             good_el: Boolean array containing all good electrodes in each frame
 """
 import os
+import sys
+sys.path.insert(0,"common")
+sys.path.insert(0,"reachgrasp-spikewave/src/common")
 
 import numpy as np
 
@@ -37,7 +40,7 @@ import h5py_wrapper.wrapper as h5pyw
 
 import wave_main as wave_main
 
-__updated__ = "2018-02-20"
+__updated__ = "2018-04-24"
 
 
 def calc_waveproperties(job_id, selected_subsession, selected_filter):
