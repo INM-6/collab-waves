@@ -28,6 +28,8 @@ import sys
 print("\n".join(sys.path))
 sys.path.insert(0, "common")
 sys.path.insert(0, "reachgrasp-spikewave/src/common")
+import matplotlib
+matplotlib.use("Agg")
 
 import numpy as np
 
