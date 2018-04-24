@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+"""
+Module containing global parameters and utility functions for the wave project.
+"""
 
 import sys
 import os
@@ -14,7 +16,6 @@ import scipy.cluster.vq as vqcluster
 import scipy.signal as pysig
 
 import neo
-
 import pick
 
 
@@ -196,8 +197,7 @@ def get_data_dir(sessionname):
     # Determine subdirectory
     subdir = 'Data' + monkey_names[sessionname[0]]
 
-    return ("datasets/","reachgrasp-spikewave/metadata/Meta" + subdir)
-
+    return "datasets/", "reachgrasp-spikewave/metadata/Meta" + subdir
 
     # Laptop or server
     if platform.node() != 'hambach':
@@ -402,8 +402,8 @@ def run_task(worker_function, job_id, parameter_list, spare_core=-1):
         Number of CPU cores to leave unoccupied in multiprocessing mode. At
         least one CPU must be available for running tasks, such that spare_core
         must be an integer smaller than the number of cores available on the
-        machine. For example, if set to 2, only 6 cores on a 8 core machines 
-        will not be used. If -1, no multiprocessing is used at all. 
+        machine. For example, if set to 2, only 6 cores on a 8 core machines
+        will not be used. If -1, no multiprocessing is used at all.
         Default: -1
     """
 
@@ -820,8 +820,8 @@ def applyhilbert(ansig):
         pysig.hilbert(s, N=n_opt)[:n_org])
 
 
-
-def spike_triggered_phase(spiketrains, hilbert_transform, interpolate, extrasignal):
+def spike_triggered_phase(
+        spiketrains, hilbert_transform, interpolate, extrasignal):
     """
     Calculate the set of spike-triggered phases of an AnalogSignal.
 
@@ -1947,9 +1947,9 @@ def classify_wave_patterns_thresh(meas, thresh):
     T[np.logical_and(T == 0, np.logical_and(np.logical_and(
         c2, c4), c5))] = 3
 
-    return neo.AnalogSignal(T * pq.dimensionless,
-                            tstart=meas['meas_var_norm_phgr'].t_start,
-                            sampling_rate=meas['meas_var_norm_phgr'].sampling_rate)
+    return neo.AnalogSignal(
+        T * pq.dimensionless, tstart=meas['meas_var_norm_phgr'].t_start,
+        sampling_rate=meas['meas_var_norm_phgr'].sampling_rate)
 
 
 def classify_wave_patterns_km(meas):
@@ -1974,8 +1974,6 @@ def classify_wave_patterns_km(meas):
         'meas_var_phase',
         'meas_var_norm_phgr',
         'meas_avg_cohphgr',
-        # TODO!!! Should be phgr!
-        #'meas_contingency_phgr',
         'meas_contingency_cohphgr',
         'meas_outwardishness_cohphgr']]).T
 
@@ -2020,8 +2018,6 @@ def classify_wave_patterns_hc(meas, ds):
         'meas_var_phase',
         'meas_var_norm_phgr',
         'meas_avg_cohphgr',
-        # TODO
-        #'meas_contingency_phgr',
         'meas_contingency_cohphgr',
         'meas_outwardishness_cohphgr']]).T
 
@@ -2093,36 +2089,6 @@ def create_class_epochs(clusters, mindur=1, min_inter_state=20):
 
     # transition matrix
     transmat = np.zeros((6, 6))
-
-#     # get differences
-#     diffs = np.diff(clusters.magnitude)
-#
-#     # these are the indexes,where state changes occur.
-#     # add 1 to get the first index of the new state, not the last index of the
-#     # previous state
-#     positions = np.where(diffs != 0)[0] + 1
-#
-#     # get lengths of epochs in steps between positions
-#     epochlen = np.diff(positions)
-
-    # get only those positions, whose following epoch is of minimum duration,
-    # and which belong to a cluster > 0
-#     finalepochs = positions[
-#         np.where(
-#             np.logical_and(
-#                 epochlen > mindur,
-#                 clusters.magnitude[positions[0:-1]] > 0))]
-#
-#     for i in finalepochs:
-#         currentclus = clusters.magnitude[i]
-#
-#         eps_t[currentclus - 1] = np.append(
-#             eps_t[currentclus - 1],
-#             clusters.times[i].magnitude)
-#
-#         eps_d[currentclus - 1] = np.append(
-#             eps_d[currentclus - 1],
-#             clusters.times[i].magnitude - clusters.times[i].magnitude)
 
     # saves the last detected state of minimum length in order to make the
     # entry into the transition matrix

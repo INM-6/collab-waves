@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 """
-Routines to help create wave plots and movies.
+Module containing global plotting utility functions for the wave project.
 """
 
 import os.path
@@ -12,18 +11,18 @@ import matplotlib.pyplot as plt
 
 import quantities as pq
 
-import scipy.cluster.hierarchy as hcluster
 import wave_main as wave_main
 
-# Colors of pattern types 
-cmap =  [
-    'DarkGray', 'Navy', 'DarkTurquoise', 
+# Colors of pattern types
+cmap = [
+    'DarkGray', 'Navy', 'DarkTurquoise',
     'YellowGreen', 'Orange', 'Crimson']
 
 # Alternative
 # (unclassified is black, then add palette for patterns)
 # cmap = [(0, 0, 0, 1)]
-# cmap.extend([plt.cm.get_cmap('gist_ncar', 20)(i) for i in [2, 8, 12, 14, 16]])
+# cmap.extend([plt.cm.get_cmap('gist_ncar', 20)(i) for i in [
+#     2, 8, 12, 14, 16]])
 
 # cmap.extend([plt.cm.get_cmap('gist_ncar', 16)(i) for i in range(1, 16, 3)])
 # cmap.extend([plt.cm.get_cmap('nipy_spectral', 7)(i) for i in range(1, 6)])
@@ -132,7 +131,8 @@ def plot_array_col_grad(
     cmap : matplotlob.pyplot.cm.get_cmap
         Colormap to for plotting the phases.
     rot : float
-        Rotates the array CW by rot degree. Currently partly supported. Default: 0.
+        Rotates the array CW by rot degree. Currently partly supported.
+        Default: 0.
 
 
     Returns
@@ -347,55 +347,3 @@ def movie_maker(frames_directory, movie_directory, frame_format, movie_name,
 
     print("\n\nExecuting:\n %s\n\n" % ' '.join(command))
     subprocess.check_call(command)
-
-
-# =============================================================================
-# OLD
-# =============================================================================
-
-
-def depr_plot_classification(Z, T, ct, cv_phgr, cv_cophgr, cv_ph, amp, trial_length):
-    time = range(trial_length)
-
-    plt.subplot(411)
-    R = hcluster.dendrogram(
-        Z, color_threshold=ct, no_labels=True, show_leaf_counts=True)
-    c = np.unique(R['color_list'])
-
-    plt.subplot(412)
-    plt.plot(Z[:, 2][::-1])
-    plt.xticks(np.arange(25))
-    plt.xlim(0, 25)
-
-    plt.subplot(413)
-    for i in range(len(c)):
-        for j in range(len(c)):
-            if len(np.nonzero((np.array(R['color_list']) == c[i]))[0]) == len(np.nonzero((T == j + 1))[0]) - 1:
-                plt.fill_between(
-                    time, 0, (T == j + 1), color=c[i], alpha=0.2, lw=0)
-
-    plt.plot(time, cv_phgr, 'k', lw=3)
-    plt.plot(time, cv_cophgr, 'Gray', lw=3)
-    plt.plot(time, cv_ph, 'w', lw=3)
-    plt.plot(time, amp, 'r--', lw=3)
-
-    plt.subplot(414)
-    cl_char = {}
-    color = {}
-    for i in range(len(c)):
-        for j in range(len(c)):
-            if len(np.nonzero((np.array(R['color_list']) == c[i]))[0]) == len(np.nonzero((T == j + 1))[0]) - 1:
-                color[i] = c[i]
-                cl_char[i] = []
-                cl_char[i].append(np.mean(np.array(cv_ph)[T == j + 1]))
-                cl_char[i].append(np.mean(np.array(cv_phgr)[T == j + 1]))
-                cl_char[i].append(np.mean(np.array(cv_cophgr)[T == j + 1]))
-
-    barwidth = 0.15
-    for i in cl_char.keys():
-        index = np.arange(len(cl_char[i]))
-        plt.bar(index + (i - 1) * barwidth,
-                cl_char[i], barwidth, color=color[i])
-
-    plt.xticks(index + barwidth +
-               (len(cl_char[i]) * barwidth) / 2., ['cv_ph', 'cv_phgr', 'cv_cophgr'])
