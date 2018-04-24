@@ -25,8 +25,9 @@ Output files:
 """
 import os
 import sys
-sys.path.insert(0,"common")
-sys.path.insert(0,"reachgrasp-spikewave/src/common")
+print("\n".join(sys.path))
+sys.path.insert(0, "common")
+sys.path.insert(0, "reachgrasp-spikewave/src/common")
 
 import numpy as np
 
