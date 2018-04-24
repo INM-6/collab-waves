@@ -29,7 +29,7 @@ import h5py_wrapper.wrapper as h5pyw
 import wave_main as wave_main
 import wave_plots as wave_plots
 
-__updated__ = "2018-02-20"
+__updated__ = "2018-04-25"
 
 
 def calc_events(job_id, selected_subsession, selected_filter):
@@ -114,7 +114,7 @@ def calc_events(job_id, selected_subsession, selected_filter):
 if __name__ == '__main__':
     # Set up project, do not delete existing data
     pc = projctrl.ProjectControl(
-        project_name='reachgrasp-spikewave', script_name='calc_events',
+        project_name='collab-waves', script_name='calc_events',
         clear_data=True)
 
     param = {}

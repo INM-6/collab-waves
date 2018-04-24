@@ -25,6 +25,8 @@ Output files:
 """
 import os
 import sys
+
+# Add Python path and set matplotlib backend
 print("\n".join(sys.path))
 sys.path.insert(0, "common")
 sys.path.insert(0, "reachgrasp-spikewave/src/common")
@@ -43,7 +45,7 @@ import h5py_wrapper.wrapper as h5pyw
 
 import wave_main as wave_main
 
-__updated__ = "2018-04-24"
+__updated__ = "2018-04-25"
 
 
 def calc_waveproperties(job_id, selected_subsession, selected_filter):
@@ -236,7 +238,7 @@ def calc_waveproperties(job_id, selected_subsession, selected_filter):
 if __name__ == '__main__':
     # Set up project, do not delete existing data
     pc = projctrl.ProjectControl(
-        project_name='reachgrasp-spikewave', 
+        project_name='collab-waves', 
         script_name='calc_waveproperties',
         clear_data=False)
 

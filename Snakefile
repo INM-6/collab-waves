@@ -23,7 +23,6 @@ rule generate_events:
     shell:
         "python reachgrasp-spikewave/src/calc_trial_events ;"
 
-
 rule generate_phases:
     input:
         lambda wildcards: "datasets/" + wildcards.session + ".nev"
@@ -38,7 +37,7 @@ rule generate_phases:
             raise ValueError("Unknown file.")
 	    shell("python reachgrasp-spikewave/src/calc_waveproperties " + str(i))
 
-rule generate_bollywood:
+rule generate_movie:
     input:
         lambda wildcards: "ProjectsData/reachgrasp-spikewave/results/calc_waveproperties/"+ wildcards.session + "_filter_beta_large_neo_frames.h5"
     output:

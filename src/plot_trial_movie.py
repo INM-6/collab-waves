@@ -26,7 +26,7 @@ import h5py_wrapper.wrapper as h5pyw
 import wave_main as wave_main
 import wave_plots as wave_plots
 
-__updated__ = "2018-02-20"
+__updated__ = "2018-04-25"
 
 
 # =============================================================================
@@ -194,7 +194,7 @@ data_dir, metadata_dir = wave_main.get_data_dir(selected_subsession_name)
 # Result directory contains filename, filter and trial to overcome problems
 # with number of files in a directory
 pc = projctrl.ProjectControl(
-    project_name='reachgrasp-spikewave',
+    project_name='collab-waves',
     script_name='ms_figs/movs1_small/movie_%s_filter_%s_trialid_%i' %
     (selected_subsession_name, selected_filter, selected_trial_id),
     clear_data=True)
