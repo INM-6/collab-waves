@@ -28,8 +28,7 @@ import sys
 
 # Add Python path and set matplotlib backend
 print("\n".join(sys.path))
-sys.path.insert(0, "common")
-sys.path.insert(0, "reachgrasp-spikewave/src/common")
+sys.path.insert(0, "collab-waves/src/common")
 import matplotlib
 matplotlib.use("Agg")
 
