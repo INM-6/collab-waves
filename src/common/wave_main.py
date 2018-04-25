@@ -197,7 +197,7 @@ def get_data_dir(sessionname):
     # Determine subdirectory
     subdir = 'Data' + monkey_names[sessionname[0]]
 
-    return "datasets/", "reachgrasp-spikewave/metadata/Meta" + subdir
+    return "datasets/", "collab-waves/metadata/Meta" + subdir
 
     # Laptop or server
     if platform.node() != 'hambach':
