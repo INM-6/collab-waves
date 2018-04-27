@@ -197,6 +197,7 @@ def get_data_dir(sessionname):
     # Determine subdirectory
     subdir = 'Data' + monkey_names[sessionname[0]]
 
+    return "../datasets/", "../metadata/Meta" + subdir
     return "datasets/", "collab-waves/metadata/Meta" + subdir
 
     # Laptop or server
@@ -725,99 +726,6 @@ def get_elec_center_angle(electrode):
         a = 2.0 * np.pi + a
 
     return a
-
-
-def butterworth(data, low, high, order=3, fs=1000):
-    """
-    Filters an array using the filtfilt function with a Butterworth filter of
-    given order.
-    """
-    nyq = 0.5 * fs
-    lowcut, highcut = low / nyq, high / nyq
-    l, h = pysig.butter(order, [lowcut, highcut], btype='band')
-    buttered_data = pysig.filtfilt(l, h, data)
-
-    return buttered_data
-
-
-def applyfilter(ansig, lowcut, highcut, order):
-    '''
-    Apply a butterworth passband filter to an AnalogSignal.
-
-    Parameters
-    ----------
-    signal : neo.AnalogSignal
-        Signal to filter
-    lowcut : float
-        Lower cutoff frequency in Hz.
-    highcut : float
-        Upper cut-off frequency in Hz.
-    order : int
-        Filter order.
-
-    Returns
-    -------
-    neo.AnalogSignal
-        Contains the filtered signal.
-    '''
-
-    # TODO: Integrate into jelephant, use existing filtering method
-    return ansig.duplicate_with_new_array(
-        butterworth(
-            data=ansig.magnitude, low=lowcut, high=highcut,
-            order=order, fs=ansig.sampling_rate.rescale(pq.Hz)))
-
-
-def applyzscore(ansig):
-    '''
-    Apply a z-score operation to an AnalogSignal.
-
-    This operation subtracts the mean of the signal, and divides by its
-    standard deviation.
-
-    Parameters
-    ----------
-    signal : neo.AnalogSignal
-        Signal to z-score.
-
-    Returns
-    -------
-    neo.AnalogSignal
-        Contains the z-scored signal.
-    '''
-
-    return ansig.duplicate_with_new_array(
-        (ansig.magnitude - np.mean(ansig.magnitude)) / np.std(ansig.magnitude))
-
-
-def applyhilbert(ansig):
-    '''
-    Apply a Hilbert transform to an AnalogSignal in order to obtains its
-    (complex) analytic signal.
-
-    Parameters
-    -----------
-    signal : neo.AnalogSignal
-        Signal to transform.
-
-    Returns
-    -------
-    neo.AnalogSignal
-        Contains the analytic signal.
-    '''
-
-    # To speed up calculation of the Hilbert transform, make sure we change the
-    # signal to be of a length that is a power of two. Failure to do so results
-    # in computations of certain signal lengths to not finish (or finish in
-    # absurd time).
-    n_org = len(ansig.magnitude)
-    n_opt = int(math.pow(2, math.ceil(math.log(n_org) / math.log(2))))
-
-    # Right-pad signal to desired length using the signal itself
-    s = np.hstack((ansig.magnitude, ansig.magnitude[:n_opt - n_org]))
-
-    return ansig.duplicate_with_new_array(
-        pysig.hilbert(s, N=n_opt)[:n_org])
 
 
 def spike_triggered_phase(

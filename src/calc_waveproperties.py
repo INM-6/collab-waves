@@ -27,24 +27,28 @@ import os
 import sys
 
 # Add Python path and set matplotlib backend
-print("\n".join(sys.path))
 sys.path.insert(0, "collab-waves/src/common")
 import matplotlib
 matplotlib.use("Agg")
 
 import numpy as np
 
+# Neo for IO and data handling
 import neo.io.hdf5io as nh5
 from rgio import ReachGraspIO
 
+# Elephant to perform phase extraction
+import elephant.signal_processing
+
+# Utility functions 
 import pick as pick
 import projctrl as projctrl
-
 import h5py_wrapper.wrapper as h5pyw
 
+# Project specific parameters and shared functions
 import wave_main as wave_main
 
-__updated__ = "2018-04-25"
+__updated__ = "2018-04-27"
 
 
 def calc_waveproperties(job_id, selected_subsession, selected_filter):
@@ -133,19 +137,27 @@ def calc_waveproperties(job_id, selected_subsession, selected_filter):
         os.remove(framesfile)
     ho = nh5.NeoHdf5IO(filename=framesfile)
 
+    # Extract phase information using Elephant
     print("Filtering blocks - %s" % selected_subsession_name)
     pick.map_as(
-        neo_block, wave_main.applyfilter,
-        annotations=None, lowcut=param['lowcut'],
-        highcut=param['highcut'], order=param['order'])
+        neo_block, 
+        elephant.signal_processing.butter,
+        annotations=None,
+        lowpass_freq=param['highcut'],
+        highpass_freq=param['lowcut'],
+        order=param['order'])
 
     print("z-scoring block - %s" % selected_subsession_name)
     pick.map_as(
-        neo_block, wave_main.applyzscore, annotations=None)
+        neo_block,
+        elephant.signal_processing.zscore,
+        annotations=None,
+        inplace=False)
 
     print("Calculating the analytic  - %s" % selected_subsession_name)
     pick.map_as(
-        neo_block, wave_main.applyhilbert, annotations=None)
+        neo_block, elephant.signal_processing.hilbert,
+        annotations=None)
 
     print("Determining connected, non-broken, non-rejected electrodes - %s" %
           selected_subsession_name)

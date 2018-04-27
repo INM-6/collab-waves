@@ -17,6 +17,9 @@ import matplotlib.offsetbox
 import quantities as pq
 import neo.io.hdf5io as nh5
 
+# Elephant to perform phase extraction
+import elephant.signal_processing
+
 import pick as pick
 from rgio import ReachGraspIO
 
@@ -26,7 +29,7 @@ import h5py_wrapper.wrapper as h5pyw
 import wave_main as wave_main
 import wave_plots as wave_plots
 
-__updated__ = "2018-04-25"
+__updated__ = "2018-04-27"
 
 
 # =============================================================================
@@ -243,18 +246,23 @@ neo_block = subsessionobj.read_block(
     n_starts=[None], n_stops=[None],
     channel_list=range(1, 97), nsx=2, events=True)
 pick.map_as(
-    neo_block, wave_main.applyzscore, annotations=None)
+    neo_block, elephant.signal_processing.zscore, 
+    annotations=None, inplace=False)
 
 # Create filtered and z-scored data
 neo_block_f = subsessionobj.read_block(
     n_starts=[None], n_stops=[None],
     channel_list=range(1, 97), nsx=2, events=True)
 pick.map_as(
-    neo_block_f, wave_main.applyfilter,
-    annotations=None, lowcut=param_prop['lowcut'],
-    highcut=param_prop['highcut'], order=param_prop['order'])
+    neo_block_f, elephant.signal_processing.butter,
+    annotations=None,
+    lowpass_freq=param_prop['highcut'],
+    highpass_freq=param_prop['lowcut'],
+    order=param_prop['order'])
+
 pick.map_as(
-    neo_block_f, wave_main.applyzscore, annotations=None)
+    neo_block_f, elephant.signal_processing.zscore, 
+    annotations=None, inplace=False)
 
 # Add trial epochs to the data
 subsessionobj.add_trials_around(
