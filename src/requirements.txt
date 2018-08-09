@@ -8,3 +8,11 @@ elephant>=0.5.0
 git+git://github.com/INM-6/python-neo@blackrockio_legacy_pytables3_py3
 xlrd
 xlwt
+
+# These are dependencies of pyxus -- remove these lines if the dependencies get auto-installed by pyxus
+pyld
+rdflib
+pystache
+rdflib-jsonld
+curlify
+--index-url https://testpypi.python.org/pypi pyxus
